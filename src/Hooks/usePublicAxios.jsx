@@ -1,13 +1,13 @@
 import axios from "axios";
+const axiosPublic = axios.create({
+    baseURL: 'http://localhost:1506',
+    // timeout: 1000,
+    // headers: {'X-Custom-Header': 'foobar'}
+  });
 
 
 const usePublicAxios = () => {
-    const instance = axios.create({
-        baseURL: 'https://some-domain.com/api/',
-        timeout: 1000,
-        headers: {'X-Custom-Header': 'foobar'}
-      });
-    return instance;
+    
+    return axiosPublic;
 };
-
 export default usePublicAxios;

@@ -1,18 +1,29 @@
 import useAuth from "../../Hooks/useAuth";
+import usePublicAxios from "../../Hooks/usePublicAxios";
+
+import { imageURL } from "../../Utillits.js/ImageCreate";
+
 
 
 const Register = () => {
+  const  axiosPublic=usePublicAxios()
   const {createUser,Updateprofile}=useAuth()
-  const handleUser=e=>{
+  const handleUser= async e=>{
     e.preventDefault()
     const name=e.target.name.value
-    const photo=e.target.photo.files[0].name
+    const photo=e.target.photo.files[0]
     const email=e.target.email.value
     const password=e.target.password.value
-    console.log(name,photo,email,password)  
-    createUser(email,password).then(
-      Updateprofile(name,photo).then((result)=>{
-                     
+    const image=await imageURL(photo)
+  const  info={userName:name,image,email,role:"Customer"}
+  console.log(info)
+   await createUser(email,password).then(
+     await Updateprofile(name,image).then(async()=>{
+
+     
+      
+      await axiosPublic.post('/user',info).then(res=>console.log(res.data))
+
       }).catch(error=>console.log(error))
     )
     .catch()
