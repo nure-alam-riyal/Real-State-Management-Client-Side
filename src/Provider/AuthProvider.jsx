@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { auth } from "../Firebase/FirebaseAuth";
 import { GoogleAuthProvider } from "firebase/auth/web-extension";
-export const AuthContex = createContext(null)
+export const AuthContex = createContext('')
 const AuthProvider = ({ children }) => {
     const [user,setUser]=useState('')
     const [loading,SetLoading]=useState(true)
@@ -23,9 +23,16 @@ const AuthProvider = ({ children }) => {
         SetLoading(true)
         return signInWithPopup(auth, provider)
     }
+    const Updateprofile=(name,photo)=>{
+ return updateProfile(auth.currentUser,{
+        displayName:name,
+        photoURL:photo,
+ })
+    }
     useEffect(()=>{
        const unSubscribe=onAuthStateChanged(auth,(CurretUser=>{
                      setUser(CurretUser)
+                     console.log(CurretUser)
                      SetLoading(false)
        }))
        return ()=>unSubscribe()
@@ -35,6 +42,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         LogOut,
         SignInWithGoogle,
+        Updateprofile,
         user,
         loading
 
@@ -49,6 +57,6 @@ const AuthProvider = ({ children }) => {
     );
 };
 AuthProvider.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.any
 }
 export default AuthProvider;

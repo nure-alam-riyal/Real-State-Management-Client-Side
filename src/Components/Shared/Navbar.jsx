@@ -20,6 +20,22 @@ const Navbar = () => {
          
          
         },
+        {
+          key: '3',
+          label: (
+            <div><NavLink to={'/register'}>Regiter</NavLink></div>
+          ),
+         
+         
+        },
+        {
+          key: '4',
+          label: (
+            <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
+          ),
+         
+         
+        },
        
         
       ];
