@@ -34,6 +34,10 @@ const AuthProvider = ({ children }) => {
                      setUser(CurretUser)
                      console.log(CurretUser)
                      SetLoading(false)
+                     if(currentUser){
+
+                        
+                     }
        }))
        return ()=>unSubscribe()
     },[])
