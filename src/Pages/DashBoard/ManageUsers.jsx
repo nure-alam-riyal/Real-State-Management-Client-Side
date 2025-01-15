@@ -36,7 +36,7 @@ const ManageUsers = () => {
         <td>{user?.email}</td>
         <td>{user?.role}</td>
         <td>
-            <div className="space-x-3">
+            <div className="space-x-3 flex gap-3">
                 <button className="btn ">Make Admin</button>
                 <button className="btn ">Make Agent</button>
                 <button className="btn ">I am agent</button>

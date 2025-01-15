@@ -62,7 +62,7 @@ const ManageProperties = () => {
     <td>{property?.agentEmail}</td>
     <td>${property?.minPrice}-${property?.maxPrice}</td>
     <td>
-        <div className="space-x-3">
+        <div className="space-x-3 flex gap-3">
            {
             property?.varifyStatus==='verified' ?
              <button className="btn bg-yellow-200 ">Verified</button>

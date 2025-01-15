@@ -19,6 +19,7 @@ import Myaddedproperties from "../Pages/DashBoard/Myaddedproperties";
 import Requestedproperties from "../Pages/DashBoard/Requestedproperties";
 import AllProperties from "../Pages/AllProperties";
 import CardDetails from "../Pages/CardDetails";
+import Reveiws from "../Pages/DashBoard/Reveiws";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -39,6 +40,9 @@ export const router = createBrowserRouter([
             },{
                 path:'/allProperties/:id',
                 element:<CardDetails></CardDetails>
+            },{
+                   path:'/allProperties/review/:id',
+                   element:<Reveiws></Reveiws>
             }
 
         ]

@@ -94,6 +94,9 @@ const AddProperty = () => {
                        
                     </div>
                     </div>
+                    <div>
+                        <textarea name="description" id="" cols={3}  rows="3" required className="w-full border rounded-2xl p-3" placeholder="Describe the property"></textarea>
+                    </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Add Property</button>
                     </div>
