@@ -19,6 +19,7 @@ const AddProperty = () => {
         minPrice,
         ...newdata,
         image:photo,
+        agentImage:user?.photoURL,
         varifyStatus:'pending...'
       }
       console.log(PROPERTYInfo)

@@ -31,6 +31,14 @@ const Navbar = () => {
         {
           key: '4',
           label: (
+            <div><NavLink to={'/allProperties'}>All Property</NavLink></div>
+          ),
+         
+         
+        },
+        {
+          key: '5',
+          label: (
             <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
           ),
          

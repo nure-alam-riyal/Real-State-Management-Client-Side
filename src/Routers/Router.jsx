@@ -17,6 +17,8 @@ import ManageProperties from "../Pages/DashBoard/ManageProperties";
 import AddProperty from "../Pages/DashBoard/AddProperty";
 import Myaddedproperties from "../Pages/DashBoard/Myaddedproperties";
 import Requestedproperties from "../Pages/DashBoard/Requestedproperties";
+import AllProperties from "../Pages/AllProperties";
+import CardDetails from "../Pages/CardDetails";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -31,6 +33,12 @@ export const router = createBrowserRouter([
             }, {
                 path: "/register",
                 element: <Register></Register>
+            },{
+                path:'/allProperties',
+                element:<AllProperties></AllProperties>
+            },{
+                path:'/allProperties/:id',
+                element:<CardDetails></CardDetails>
             }
 
         ]
@@ -39,6 +47,7 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element:<DashBoard></DashBoard>,
         children:[
+            //user
             {
                 path:'/dashboard/userProfile',
                 element:<UserProfile></UserProfile>   
