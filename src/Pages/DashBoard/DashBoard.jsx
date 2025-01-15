@@ -3,8 +3,8 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
     return (
-        <div className="flex">
-            <div className="w-3/12">
+        <div className="flex w-11/12 mx-auto ">
+            <div className="w-3/12 text-center font-semibold text-xl">
             <div><NavLink to='/dashboard/userProfile'>My Profile</NavLink></div>
             <div><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></div>
             <div><NavLink to='/dashboard/propertyBought'>Property Bought</NavLink></div>
@@ -21,9 +21,11 @@ const DashBoard = () => {
             <div><NavLink to='/dashboard/addProperty'>Add Property</NavLink></div>
             <div><NavLink to='/dashboard/myaddedProperty'>My Added Properties</NavLink></div>
             <div><NavLink to='/dashboard/requestProperty'>Requested Properties</NavLink></div>
-
+            <div className="divider divider-warning"></div>
+            <div><NavLink to={'/'}>Home</NavLink></div>
+            <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
             </div>
-            <div className="w-9/12"
+            <div className="w-9/12 mt-10"
             >
                 <Outlet></Outlet>
             </div>

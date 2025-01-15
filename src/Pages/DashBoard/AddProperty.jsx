@@ -3,6 +3,7 @@
 const AddProperty = () => {
     return (
         <div>
+          
             
         </div>
     );

@@ -1,13 +1,20 @@
+
+
+import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 
 import { imageURL } from "../../Utillits.js/ImageCreate";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+
 
 
 
 const Register = () => {
+ 
+  const [eye,setEye]=useState(false)
   const  axiosPublic=usePublicAxios()
-  const {createUser,Updateprofile}=useAuth()
+  const {createUser,Updateprofile,signInGoogle}=useAuth()
   const handleUser= async e=>{
     e.preventDefault()
     const name=e.target.name.value
@@ -19,8 +26,6 @@ const Register = () => {
   console.log(info)
    await createUser(email,password).then(
      await Updateprofile(name,image).then(async()=>{
-
-     
       
       await axiosPublic.post('/user',info).then(res=>console.log(res.data))
 
@@ -28,6 +33,12 @@ const Register = () => {
     )
     .catch()
    }
+   const handleGoogleLogIn=async()=>{
+   await signInGoogle().
+    then(Result=>console.log(Result.user))
+    .catch(error=>console.log(error.message))
+   }
+  
     return (
         <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -50,7 +61,7 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Photo</span>
                 </label>
-                <input type="file" name="photo"  placeholder="Take your Photo" className="input input-bordered" required />
+               <div> <input type="file" name="photo"  placeholder="Take your Photo" className="input flex justify-center border-none input-bordered" required /></div>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -58,17 +69,23 @@ const Register = () => {
                 </label>
                 <input type="email" name="email"  placeholder="email" className="input input-bordered" required />
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                
+                <input type={`${eye ? 'password' : 'text'}`} name="password" placeholder="password" className="input input-bordered" required />
+                <div onClick={() => setEye(!eye)} className="absolute right-4 top-12">{
+                                eye ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                              }</div>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            <div className="divider divider-warning">OR</div>
+            <div className="flex justify-center">
+                    <div onClick={handleGoogleLogIn} className="bg-blue-500 btn my-4 w-2/3 mx-auto">LogIn With Google</div>
+            </div>
           </div>
         </div>
       </div>
