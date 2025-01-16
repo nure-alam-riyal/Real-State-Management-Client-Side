@@ -29,7 +29,7 @@ const Reveiws = () => {
                     <form onSubmit={handleReview} className="card-body">
                       <div className="form-control">
                        
-                        <textarea  name="review" required placeholder="write your reviews"  className="w-full rounded-xl p-4 border" rows="5"></textarea>
+                        <textarea maxLength={120}  name="review" required placeholder="write your reviews(max laters 120)"  className="w-full rounded-xl p-4 border" rows="5"></textarea>
                       </div>
                       
                       <div className="form-control mt-6">

@@ -1,9 +1,20 @@
+import Advertisment from "../Components/HomeComponents/Advertisment";
+import LatestedReviews from "../Components/HomeComponents/LatestedReviews";
 
 
 const Home = () => {
     return (
         <div>
-            Home......
+            <section>
+                    <div >
+                       <Advertisment></Advertisment>
+                    </div>
+            </section>
+            <section>
+                    <div >
+                        <LatestedReviews></LatestedReviews>
+                    </div>
+            </section>
             
         </div>
     );

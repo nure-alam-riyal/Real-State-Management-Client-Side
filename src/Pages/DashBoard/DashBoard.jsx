@@ -4,7 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 const DashBoard = () => {
     return (
         <div className="flex w-11/12 gap-6 mx-auto ">
-            <div className="w-3/12 text-center font-semibold text-xl">
+            <div className="lg:w-3/12 hidden lg:flex flex-col text-center font-semibold text-xl">
             <div><NavLink to='/dashboard/userProfile'>My Profile</NavLink></div>
             <div><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></div>
             <div><NavLink to='/dashboard/propertyBought'>Property Bought</NavLink></div>
@@ -25,7 +25,7 @@ const DashBoard = () => {
             <div><NavLink to={'/'}>Home</NavLink></div>
             <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
             </div>
-            <div className="w-9/12 mt-10"
+            <div className="lg:w-9/12 mt-10"
             >
                 <Outlet></Outlet>
             </div>

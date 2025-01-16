@@ -27,9 +27,9 @@ const CardDetails = () => {
     const { image, agentImage, agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
     return (
         <div>
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure className="w-1/2">
-                    <img
+            <div className="card lg:card-side h-[450px] bg-base-100 shadow-xl">
+                <figure className="lg:w-1/2 h-full ">
+                    <img className="h-full w-full"
                         src={image}
                         alt={propertyName} />
                 </figure>

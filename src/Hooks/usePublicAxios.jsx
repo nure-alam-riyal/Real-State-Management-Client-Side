@@ -5,7 +5,7 @@ const axiosPublic = axios.create({
     // headers: {'X-Custom-Header': 'foobar'}
   });
 const usePublicAxios = () => {
-    
-    return axiosPublic;
+  
+    return   axiosPublic ;
 };
 export default usePublicAxios;

@@ -22,7 +22,7 @@ const Myreviews = () => {
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
            {
                 reviews.map(review=><div key={review?._id}>
-            <div className="card image-full  h-72 glass shadow-xl">
+            <div className="card image-full  h-[350px] glass shadow-xl">
                     <figure>
                       <img className=""
                         src={review?.image}
@@ -30,8 +30,9 @@ const Myreviews = () => {
                     </figure>
                     <div className="card-body rounded-2xl bg-black bg-opacity-30">
                     <div className='flex gap-2 font-bold items-center'><img className='h-8 w-8 rounded-full' src={review?.agentImage} alt="" /> <p>{review?.agentName}</p></div>
+                      <div className="divider bg-yellow-200 h-1"></div>
                       <h2 className="card-title mt-3">{review?.propertyName}</h2>
-                      <p>{review?.review.substring(0,120)} ......</p>
+                      <p>{review?.review.substring(0,120)} </p>
                       <div className="card-actions flex-1 mt-4 justify-between">
                        <div><p>{format(new Date(review?.reviewTime),"p")}</p>
                        <p>{format(new Date(review?.reviewTime),"P")}</p></div> <button className="btn btn-primary">Delete</button>

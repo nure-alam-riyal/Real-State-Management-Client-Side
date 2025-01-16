@@ -1,16 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import usePrivetAxios from "../Hooks/usePrivetAxios";
+import usePublicAxios from "../../Hooks/usePublicAxios";
+import LoadingSpin from "../Shared/LoadingSpin";
+import CardAllProperties from "../CardAllProperties";
 
-import CardAllProperties from "../Components/CardAllProperties";
-import LoadingSpin from "../Components/Shared/LoadingSpin";
 
-
-const AllProperties = () => {
-    const axiosPrivate=usePrivetAxios()
+const Advertisment = () => {
+    const axiosPublic=usePublicAxios()
     const {data:allProperties=[],refetch,isLoading}=useQuery({
         queryKey:['allproperties'],
         queryFn:async () => {
-          const data=  await axiosPrivate.get('/allProperties')
+          const data=  await axiosPublic.get('/allProperties')
             return data.data
         }
     }) 
@@ -18,14 +17,13 @@ const AllProperties = () => {
     console.log(allProperties)
     return (
         <div>
-            <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-3 grid-cols-1">
+             <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-3 grid-cols-1">
                 {
                        allProperties.map(property=><CardAllProperties key={property?._id} property={property}></CardAllProperties>)
                 }
             </div>
-            
         </div>
     );
 };
 
-export default AllProperties;
+export default Advertisment;
