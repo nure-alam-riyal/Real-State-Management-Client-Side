@@ -18,7 +18,7 @@ const LatestedReviews = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3">
             {
                 latestReviewa?.map(review=><div key={review?._id}>
-                    <div className="card image-full   shadow-xl">
+                    <div className="card image-full h-[300px]   shadow-xl">
                             {/* <figure>
                               <img className=""
                                 src={review?.image}

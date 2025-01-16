@@ -3,10 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import usePrivetAxios from "../Hooks/usePrivetAxios";
 import LoadingSpin from "../Components/Shared/LoadingSpin";
 import { format } from "date-fns";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 const CardDetails = () => {
     const { id } = useParams()
+    const {user}=useAuth()
     const axiosPrivate = usePrivetAxios()
     const { data: property = {}, isLoading } = useQuery({
         queryKey: ['id'],
@@ -22,6 +25,22 @@ const CardDetails = () => {
             return data.data
         }
     })
+    const handleWishlist=async()=>{
+        const info={customerEmail:user?.email,
+            propertyId:id
+        }
+        console.log(info)
+        await axiosPrivate.post('/added-wishlist',info)
+        .then((result)=>{
+        if(result?.data?.insertedId)
+        {toast.success('Wishlist aded successfuly')}
+        else{
+            toast.error(result?.data?.message)
+        }
+        })
+        
+        .catch(err=> toast.error(err.message))
+    }
     console.log(reviews)
     if (isLoading || loading) return <LoadingSpin></LoadingSpin>
     const { image, agentImage, agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
@@ -53,7 +72,7 @@ const CardDetails = () => {
                     <p>{description}</p>
                     <br />
                     <div className="card-actions flex gap-3 justify-end">
-                        <button className="btn btn-primary">Add Wishlist</button>
+                        <button onClick={handleWishlist} className="btn btn-primary">Add Wishlist</button>
                         <Link to={`/allProperties/review/${_id}`} className="btn btn-primary">Add Review</Link>
                     </div>
                 </div>

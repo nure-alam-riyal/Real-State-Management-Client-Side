@@ -24,7 +24,7 @@ const Myreviews = () => {
                 reviews.map(review=><div key={review?._id}>
             <div className="card image-full  h-[350px] glass shadow-xl">
                     <figure>
-                      <img className=""
+                      <img className="h-full"
                         src={review?.image}
                         alt="Shoes" />
                     </figure>

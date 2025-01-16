@@ -20,6 +20,8 @@ import Requestedproperties from "../Pages/DashBoard/Requestedproperties";
 import AllProperties from "../Pages/AllProperties";
 import CardDetails from "../Pages/CardDetails";
 import Reveiws from "../Pages/DashBoard/Reveiws";
+import WishListPages from "../Pages/DashBoard/WishListPages";
+import MakeAnOffer from "../Pages/DashBoard/MakeAnOffer";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -58,7 +60,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/dashboard/wishlist',
-                element:<Wishlist></Wishlist>   
+                element:<WishListPages></WishListPages>  
             },
              
             {
@@ -112,7 +114,13 @@ export const router = createBrowserRouter([
                 path:'/dashboardadminPropertis',
                 element:<ManageProperties></ManageProperties>   
             },
-          
+          {
+            path:"/dashboard/wishlist/offer/:id",
+            element:<MakeAnOffer></MakeAnOffer>
+            
+          },{
+
+          }
          
             
             

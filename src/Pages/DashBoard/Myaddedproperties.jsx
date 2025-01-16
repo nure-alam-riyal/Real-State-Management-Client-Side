@@ -19,7 +19,7 @@ const Myaddedproperties = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3 grid-cols-1">
+            <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-3 grid-cols-1">
                 {
                         allProperty.map(property=><Card key={property?._id} refetch={refetch} property={property}></Card>)
                 }
