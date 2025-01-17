@@ -25,7 +25,7 @@ const LatestedReviews = () => {
                                 alt="Shoes" />
                             </figure> */}
                             <div className="card-body flex flex-col bg-slate-200 bg-opacity-20 rounded-2xl ">
-                            <div className='flex gap-2 font-bold items-center'><img className='h-8 w-8 rounded-full' src={review?.reviewerImage} alt="" /> <div><p>{review?.reviewerName}</p>
+                            <div className='flex gap-2 font-bold items-center'><img referrerPolicy='no-referrer' className='h-8 w-8 rounded-full' src={review?.reviewerImage} alt="" /> <div><p>{review?.reviewerName}</p>
                             {/* <p><p>{review?.reviewerEmail}</p></p> */}
                             </div>
                             </div>

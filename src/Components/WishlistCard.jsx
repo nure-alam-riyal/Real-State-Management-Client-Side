@@ -10,7 +10,7 @@ const WishlistCard = ({property}) => {
         <div className="card glass  shadow-xl">
         
         <div className="card-body">
-          <div className='flex gap-2 font-bold items-center'><img className='h-8 w-8 rounded-full' src={agentImage} alt="" /> <p>{agentName}</p></div>
+          <div className='flex gap-2 font-bold items-center'><img referrerPolicy='no-referrer' className='h-8 w-8 rounded-full' src={agentImage} alt="" /> <p>{agentName}</p></div>
           <div className="divider h-1 bg-green-200"></div>
          <div className="flex justify-between items-center"> <h2 className="card-title">{propertyName}</h2> <div className="inline px-2 py-1 rounded-badge border border-yellow-700">{varifyStatus}</div></div>
           <p>{location}</p>

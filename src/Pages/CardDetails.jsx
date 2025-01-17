@@ -14,7 +14,7 @@ const CardDetails = () => {
     const { data: property = {}, isLoading } = useQuery({
         queryKey: ['id'],
         queryFn: async () => {
-            const data = await axiosPrivate.get(`/Property/${id}`)
+            const data = await axiosPrivate.get(`/oneproperty/${id}`)
             return data.data
         }
     })
@@ -41,7 +41,7 @@ const CardDetails = () => {
         
         .catch(err=> toast.error(err.message))
     }
-    console.log(reviews)
+    console.log(property)
     if (isLoading || loading) return <LoadingSpin></LoadingSpin>
     const { image, agentImage, agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
     return (
@@ -50,7 +50,8 @@ const CardDetails = () => {
                 <figure className="lg:w-1/2 h-full ">
                     <img className="h-full w-full"
                         src={image}
-                        alt={propertyName} />
+                        alt={propertyName} 
+                        referrerPolicy='no-referrer'/>
                 </figure>
                 <div className="card-body w-1/2">
                 <div className='flex gap-2 font-bold items-center'>

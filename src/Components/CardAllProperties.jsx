@@ -12,7 +12,7 @@ const CardAllProperties = ({property}) => {
     return (
         <div className="card glass  shadow-xl">
   <figure className="relative">
-    <img
+    <img referrerPolicy='no-referrer'
       src={image}
       alt="Shoes" 
       className="h-60 w-full"/>
@@ -21,7 +21,7 @@ const CardAllProperties = ({property}) => {
       </div>
   </figure>
   <div className="card-body">
-    <div className='flex gap-2 font-bold items-center'><img className='h-8 w-8 rounded-full' src={user?.photoURL} alt="" /> <p>{agentName}</p></div>
+    <div className='flex gap-2 font-bold items-center'><img referrerPolicy='no-referrer' className='h-8 w-8 rounded-full' src={user?.photoURL} alt="" /> <p>{agentName}</p></div>
     <h2 className="card-title">{propertyName}</h2>
     <p>{location}</p>
     <p>${minPrice}-${maxPrice}</p>

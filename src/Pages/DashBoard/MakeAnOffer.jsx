@@ -15,15 +15,15 @@ const MakeAnOffer = () => {
     const { data: property = {}, isLoading } = useQuery({
         queryKey: ['id'],
         queryFn: async () => {
-            const data = await axiosPrivate.get(`/Property/${id}`)
+            const data = await axiosPrivate.get(`/oneproperty/${id}`)
             return data.data
         }
     })
-    const {  agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
+    const {  agentName,_id, propertyName,location, agentEmail, maxPrice, minPrice } = property || {}
     const [offerRange,setOfferRange]=useState(minPrice)
     // const [offerRange2,setOfferRange2]=useState('')
     
-    // console.log(property)
+    console.log(property)
     if(isLoading) {return <LoadingSpin></LoadingSpin>}
     
    if(maxPrice<offerRange)
@@ -133,7 +133,7 @@ const MakeAnOffer = () => {
                         <label className="label">
                             <span className="label-text">Offer Price</span>
                         </label>
-                        <input type="number" name="offerprice" onChange={(e)=>setOfferRange(e.target.value)} value={offerRange} className="input input-bordered" required />
+                        <input type="number" name="offerprice" defaultValue={minPrice} onChange={(e)=>setOfferRange(e.target.value)} value={offerRange} className="input input-bordered" required />
                         {
                             // offerRange2?<p className="text-red-500">{offerRange2}</p>:<p>riyal</p>
                         }

@@ -22,6 +22,8 @@ import CardDetails from "../Pages/CardDetails";
 import Reveiws from "../Pages/DashBoard/Reveiws";
 import WishListPages from "../Pages/DashBoard/WishListPages";
 import MakeAnOffer from "../Pages/DashBoard/MakeAnOffer";
+import PrivateRoute from "./PrivateRoute";
+import AgentRoute from "./AgentRoute";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -56,41 +58,41 @@ export const router = createBrowserRouter([
             //user
             {
                 path:'/dashboard/userProfile',
-                element:<UserProfile></UserProfile>   
+                element:<PrivateRoute><UserProfile></UserProfile> </PrivateRoute>  
             },
             {
                 path:'/dashboard/wishlist',
-                element:<WishListPages></WishListPages>  
+                element:<PrivateRoute><WishListPages></WishListPages> </PrivateRoute> 
             },
              
             {
                 path:'/dashboard/propertyBought',   
-                element:<Propertybought></Propertybought>
+                element:<PrivateRoute><Propertybought></Propertybought></PrivateRoute>
             },
             {
                 path:'/dashboard/myReveiws',
-                element:<Myreviews></Myreviews>   
+                element:<PrivateRoute><Myreviews></Myreviews></PrivateRoute>
             },
             //agent
             {
                 path:'/dashboard/agentProfile',
-                element:<AgentProfile></AgentProfile>   
+                element:<AgentRoute><AgentProfile></AgentProfile>   </AgentRoute>
             },
             {
                 path:'/dashboard/mySoldProperties',
-                element:<Mysoldproperties></Mysoldproperties>   
+                element:<AgentRoute><Mysoldproperties></Mysoldproperties></AgentRoute>   
             },
             {
                 path:'/dashboard/addProperty',
-                element:<AddProperty></AddProperty>   
+                element:<AgentRoute><AddProperty></AddProperty>   </AgentRoute>
             },
             {
                 path:'/dashboard/myaddedProperty',
-                element:<Myaddedproperties></Myaddedproperties>   
+                element:<AgentRoute><Myaddedproperties></Myaddedproperties>  </AgentRoute> 
             },
             {
                 path:'/dashboard/requestProperty',
-                element:<Requestedproperties></Requestedproperties>   
+                element:<AgentRoute><Requestedproperties></Requestedproperties>  </AgentRoute> 
             },
             //admin
             {
@@ -102,17 +104,17 @@ export const router = createBrowserRouter([
           
             {
                 path:'/dashboard/manageReviews',
-                element:<Managereviews></Managereviews>   
+                element:<Managereviews></Managereviews>
             },
             
             {
                 path:'/dashboard/manageUser',
-                element:<ManageUsers></ManageUsers>   
+                element:<ManageUsers></ManageUsers>  
             },
           
             {
                 path:'/dashboardadminPropertis',
-                element:<ManageProperties></ManageProperties>   
+                element:<ManageProperties></ManageProperties>
             },
           {
             path:"/dashboard/wishlist/offer/:id",

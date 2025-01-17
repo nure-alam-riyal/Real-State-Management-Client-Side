@@ -1,17 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
-import { PiUserSquareThin } from "react-icons/pi";
+
 import Card from "../../Components/Card";
+import useAuth from "../../Hooks/useAuth";
 
 
 const Myaddedproperties = () => {
     const axiosPrivate=usePrivetAxios()
-    const {user}=PiUserSquareThin()
+    const {user}=useAuth()
     const {data:allProperty=[],isLoading,refetch}=useQuery({
-        queryKey:['property'],
+        queryKey:['property',user.eamil],
         queryFn:async () => {
-            const data=await  axiosPrivate(`/property?${user?.email}`)
+            const data=await  axiosPrivate.get(`/property/${user?.email}`)
             return data.data
         }
     }) 

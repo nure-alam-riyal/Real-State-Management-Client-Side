@@ -19,7 +19,7 @@ const Advertisment = () => {
         <div>
              <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-3 grid-cols-1">
                 {
-                       allProperties.map(property=><CardAllProperties key={property?._id} property={property}></CardAllProperties>)
+                       allProperties.slice(0,4).map(property=><CardAllProperties key={property?._id} property={property}></CardAllProperties>)
                 }
             </div>
         </div>

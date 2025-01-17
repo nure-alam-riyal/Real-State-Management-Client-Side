@@ -10,7 +10,7 @@ const Card = ({property}) => {
         <div className="card glass shadow-xl">
   <figure className="relative">
     <img
-      src={image}
+      src={image} referrerPolicy='no-referrer'
       alt="Shoes" 
       className="h-60 w-full"/>
       <div className="inline rounded-badge px-2 py-1 top-1 right-2 bg-slate-50 absolute">
@@ -18,7 +18,7 @@ const Card = ({property}) => {
       </div>
   </figure>
   <div className="card-body">
-    <div className='flex gap-2 font-bold items-center'><img className='h-8 w-8 rounded-full' src={agentImage} alt="" /> <p>{agentName}</p></div>
+    <div className='flex gap-2 font-bold items-center'><img referrerPolicy='no-referrer' className='h-8 w-8 rounded-full' src={agentImage} alt="" /> <p>{agentName}</p></div>
     <h2 className="card-title">{propertyName}</h2>
     <p>{location}</p>
     <p>${minPrice}-${maxPrice}</p>
