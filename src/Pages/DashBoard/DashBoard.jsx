@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
     return (
-        <div className="flex w-11/12 gap-6 mx-auto ">
+        <div className="lg:flex w-11/12 lg:gap-6 mx-auto ">
             <div className="lg:w-3/12 hidden lg:flex flex-col text-center font-semibold text-xl">
             <div><NavLink to='/dashboard/userProfile'>My Profile</NavLink></div>
             <div><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></div>

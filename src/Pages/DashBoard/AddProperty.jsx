@@ -33,10 +33,10 @@ const AddProperty = () => {
       
     }
     return (
-        <div>
-            <div className="card bg-base-100 w-full max-w-xl shrink-0 shadow-2xl">
+        <div className= " flex justify-center">
+            <div className="card bg-base-100 w-11/12 md:w-full mx-auto shrink-0 shadow-2xl">
                 <form onSubmit={handleProperty} className="card-body">
-                    <div className="flex justify-between gap-5 items-center">
+                    <div className="md:flex justify-between gap-5 space-y-3 items-center">
                         <div className="flex-1" >
                             <div>
                                 <div className="form-control">
@@ -64,7 +64,7 @@ const AddProperty = () => {
                            <div className="mx-auto w-[90%]"> <input type="file" name="image" placeholder="Take a Picture"   required /></div>
                         </div>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="lg:flex gap-5">
                     <div className="form-control flex-1">
                         <label className="label">
                             <span className="label-text">Agent Email</span>
@@ -75,11 +75,11 @@ const AddProperty = () => {
                         <label className="label">
                             <span className="label-text">Agent Name</span>
                         </label>
-                        <input type="text" name="agentName" defaultValue={user?.displayName} className="input input-bordered" required />
+                        <input type="text" name="agentName" defaultValue={user?.displayName} readOnly className="input input-bordered" required />
                        
                     </div>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="lg:flex gap-5">
                     <div className="form-control flex-1">
                         <label className="label">
                             <span className="label-text">Min Price</span>

@@ -3,7 +3,7 @@ const Profile = ({ user }) => {
     const { userName, image, role, email } = user || {}
     return (
         <div >
-            <div className="card bg-base-100 w-1/2 mx-auto shadow-xl">
+            <div className="card bg-base-100 md:w-1/2 w-11/12 mx-auto shadow-xl">
                 <figure className="">
                     <img 
                         src={image}

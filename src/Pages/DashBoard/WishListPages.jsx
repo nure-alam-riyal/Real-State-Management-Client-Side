@@ -11,17 +11,17 @@ const WishListPages = () => {
     const {data:wishlist=[],isLoading}=useQuery({
         queryKey:[user?.email],
         queryFn:async () => {
-            const data=await axiosPrivate.get(`/myWishlist/${user.email}`)
+            const data= await axiosPrivate.get(`/myWishlist/${user.email}`)
             return data.data
         }
     })
     if(isLoading) return <LoadingSpin></LoadingSpin>
-    console.log(wishlist,user?.email)
+  
     return (
         <div>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
             {
-                wishlist?.map(list=><WishlistCard key={list._id} property={list}></WishlistCard>)
+                wishlist?.map(list=><WishlistCard key={list?._id} property={list}></WishlistCard>)
             }
            </div>
         </div>
