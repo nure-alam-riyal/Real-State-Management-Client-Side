@@ -3,9 +3,12 @@ import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 
 const MakeAnOffer = () => {
+    
     const {id}=useParams()
     const {user}=useAuth()
     const axiosPrivate=usePrivetAxios()
@@ -16,13 +19,56 @@ const MakeAnOffer = () => {
             return data.data
         }
     })
+    const {  agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
+    const [offerRange,setOfferRange]=useState(minPrice)
+    // const [offerRange2,setOfferRange2]=useState('')
+    
+    // console.log(property)
+    if(isLoading) {return <LoadingSpin></LoadingSpin>}
+    
+   if(maxPrice<offerRange)
+   {
+    setOfferRange(maxPrice)
+    //   setOfferRange2('out of range')
+   }
+   else if(minPrice>offerRange)
+   {
+    setOfferRange(minPrice)
+    //  setOfferRange2('out of range')
+   }
+   else{
+    // setOfferRange2(null)
+   }
+
+    
+
     const handleUdateProperty=async e=>{
         e.preventDefault()
+         const formdata=new FormData(e.target)
+                const data= Object.fromEntries(formdata.entries())
+              const  { offerprice, ...newdata}=data 
+              const offerRange1=parseFloat(offerprice)
+              if(offerRange1>maxPrice || offerRange1<minPrice){
+                return toast.error('out of range')
+              }
+             const info={
+                ...newdata,
+                offerRange:offerRange1,
+                buyingStatus:'Pending For Buy',
+                propertyId:id,
 
-    }
-    console.log(property)
-    if(isLoading) return <LoadingSpin></LoadingSpin>
-    const {  agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
+             }
+            //  console.table(info)
+             await axiosPrivate.post('/offer',info).then((res)=>{
+                console.log(res)
+                if(res.data?.insertedId)
+                    toast.success('offer succeed')
+                })
+                .catch(er=>toast.error(er.message))
+            }
+           
+   
+
     return (
         
          
@@ -87,7 +133,10 @@ const MakeAnOffer = () => {
                         <label className="label">
                             <span className="label-text">Offer Price</span>
                         </label>
-                        <input type="number" name="offerprice" defaultValue={0} className="input input-bordered" required />
+                        <input type="number" name="offerprice" onChange={(e)=>setOfferRange(e.target.value)} value={offerRange} className="input input-bordered" required />
+                        {
+                            // offerRange2?<p className="text-red-500">{offerRange2}</p>:<p>riyal</p>
+                        }
                     </div>
                     <div className="form-control flex-1">
                         <label className="label">
