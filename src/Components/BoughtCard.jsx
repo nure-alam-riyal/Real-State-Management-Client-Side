@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 const BoughtCard = ({property}) => {
     const {propertyName,location,agentName,agentImage,image,
-        buyingStatus,maxPrice,minPrice,offerRange}=property || {}
+        buyingStatus,maxPrice,minPrice,offerRange,_id}=property || {}
         console.log(property)
     return (
         <div className="card glass shadow-xl">
@@ -23,7 +24,7 @@ const BoughtCard = ({property}) => {
           <div className="card-actions justify-end">
            
            {
-            buyingStatus==="accepted"? <button className='btn bg-yellow-100'>Pay</button>:''
+            buyingStatus==="accepted"? <Link to={`/dashboard/payBil/${_id}`} className='btn bg-yellow-100'>Pay</Link>:''
            }
           </div>
         </div>

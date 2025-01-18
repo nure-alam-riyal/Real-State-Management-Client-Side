@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 const Managereviews = () => {
     const axiosPrivate=usePrivetAxios()
-    const {data:allReviews=[],isLoading}=useQuery({
+    const {data:allReviews=[],isLoading,refetch}=useQuery({
         queryKey:['allreview'],
         queryFn:async () => {
             const data=await axiosPrivate('/allreview')
@@ -13,6 +15,34 @@ const Managereviews = () => {
         }
     })
     if(isLoading) return <LoadingSpin></LoadingSpin>
+    const handleDelete=(id)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want delete it",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: " delete"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axiosPrivate.delete(`/reviewDelete/${id}`).then(()=>{
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Review has been deleted.",
+                        icon: "success"
+                      });
+                      refetch()
+                }
+             
+                )
+                .catch(error=>toast.error(error.message));
+                
+
+            
+            }
+          });
+    }
     return (
         <div className="">
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
@@ -32,7 +62,7 @@ const Managereviews = () => {
                                  <p>{review?.review.substring(0,120)}</p>
                                  </div>
                                   <div className="card-actions  mt-4 justify-between">
-                                   <button className="btn btn-primary">Delete</button>
+                                   <button onClick={()=>handleDelete(review?._id)} className="btn btn-primary">Delete</button>
                                   </div>
                                 </div>
                               </div>

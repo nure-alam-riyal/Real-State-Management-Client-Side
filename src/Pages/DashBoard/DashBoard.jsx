@@ -21,7 +21,7 @@ const DashBoard = () => {
     return (
         <div className="lg:flex w-11/12 lg:gap-6 mx-auto ">
             
-                <div className="lg:w-3/12 hidden lg:flex flex-col text-center font-semibold text-xl">
+                <div className="lg:w-3/12 hidden  lg:flex pt-20 flex-col bg-slate-200 h-svh text-center font-semibold text-xl">
                 {(user&& user1?.role==='Customer') &&(<div>
                     <div><NavLink to='/dashboard/userProfile'>My Profile</NavLink></div>
                 <div><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></div>
@@ -47,7 +47,8 @@ const DashBoard = () => {
           }
             <div className="divider divider-warning"></div>
             <div><NavLink to={'/'}>Home</NavLink></div>
-            <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
+            <div><NavLink to={'/allProperties'}>All Property</NavLink></div>
+           
             </div>
             <div className="lg:w-9/12 mt-10"
             >

@@ -7,7 +7,7 @@ const MainLayOuts = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="w-11/12 mx-auto"><Outlet></Outlet></div>
+            <div className="w-11/12 mx-auto mt-24"><Outlet></Outlet></div>
             <Footer></Footer>
         </div>
     );

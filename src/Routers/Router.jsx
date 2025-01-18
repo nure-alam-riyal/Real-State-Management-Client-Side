@@ -5,7 +5,7 @@ import LogIn from "../Pages/Authentication/LogIn";
 import Register from "../Pages/Authentication/Register";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import Mysoldproperties from "../Pages/DashBoard/Mysoldproperties";
-import Wishlist from "../Pages/DashBoard/Wishlist";
+
 import Propertybought from "../Pages/DashBoard/Propertybought";
 import AgentProfile from "../Pages/DashBoard/AgentProfile";
 import AdminPrpfile from "../Pages/DashBoard/AdminPrpfile";
@@ -25,6 +25,7 @@ import MakeAnOffer from "../Pages/DashBoard/MakeAnOffer";
 import PrivateRoute from "./PrivateRoute";
 import AgentRoute from "./AgentRoute";
 import AdminRoute from "./AdminRoute";
+import PayPages from "../Pages/DashBoard/PayPages";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -74,6 +75,14 @@ export const router = createBrowserRouter([
                 path:'/dashboard/myReveiws',
                 element:<PrivateRoute><Myreviews></Myreviews></PrivateRoute>
             },
+            {
+              path:"/dashboard/wishlist/offer/:id",
+              element:<MakeAnOffer></MakeAnOffer>
+              
+            },{
+                     path:"/dashboard/payBil/:id" ,
+                     element:<PayPages></PayPages>
+            },
             //agent
             {
                 path:'/dashboard/agentProfile',
@@ -116,14 +125,7 @@ export const router = createBrowserRouter([
             {
                 path:'/dashboardadminPropertis',
                 element:<AdminRoute><ManageProperties></ManageProperties></AdminRoute>
-            },
-          {
-            path:"/dashboard/wishlist/offer/:id",
-            element:<MakeAnOffer></MakeAnOffer>
-            
-          },{
-
-          }
+            }
          
             
             

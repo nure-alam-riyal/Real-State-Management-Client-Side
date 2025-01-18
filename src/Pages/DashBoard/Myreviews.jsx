@@ -3,12 +3,14 @@ import useAuth from "../../Hooks/useAuth";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import { format } from "date-fns";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 const Myreviews = () => {
     const {user}=useAuth()
     const axiosPrivate=usePrivetAxios()
-    const {data:reviews=[],isLoading}=useQuery({
+    const {data:reviews=[],isLoading,refetch}=useQuery({
         queryKey:[user?.email,'review'],
         queryFn:async () => {
             const data=await axiosPrivate(`/myreview/${user?.email}`)
@@ -16,6 +18,34 @@ const Myreviews = () => {
         }
     })
     if(isLoading) return <LoadingSpin></LoadingSpin>
+    const handleDelete=(id)=>{
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You want delete it",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: " delete"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            axiosPrivate.delete(`/reviewDelete/${id}`).then(()=>{
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Review has been deleted.",
+                    icon: "success"
+                  });
+                  refetch()
+            }
+         
+            )
+            .catch(error=>toast.error(error.message));
+            
+
+        
+        }
+      });
+    }
     console.log(reviews)
     return (
         <div>
@@ -35,7 +65,7 @@ const Myreviews = () => {
                       <p>{review?.review.substring(0,120)} </p>
                       <div className="card-actions flex-1 mt-4 justify-between">
                        <div><p>{format(new Date(review?.reviewTime),"p")}</p>
-                       <p>{format(new Date(review?.reviewTime),"P")}</p></div> <button className="btn btn-primary">Delete</button>
+                       <p>{format(new Date(review?.reviewTime),"P")}</p></div> <button onClick={()=>handleDelete(review?._id)} className="btn btn-primary">Delete</button>
                       </div>
                     </div>
                   </div>

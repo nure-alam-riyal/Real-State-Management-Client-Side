@@ -49,8 +49,9 @@ const Navbar = () => {
       ];
      
     return (
-        <div className="navbar bg-base-100">
-        <div className="navbar-start">
+        <div className="flex justify-center">
+          <div className="navbar bg-base-100 w-11/12 z-20 fixed top-0">
+        <div className="navbar-start  ">
           {/* <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -121,6 +122,7 @@ const Navbar = () => {
           <a className="btn">Button</a>
         </div>
       </div>
+        </div>
     );
 };
 
