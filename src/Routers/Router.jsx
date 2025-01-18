@@ -24,6 +24,7 @@ import WishListPages from "../Pages/DashBoard/WishListPages";
 import MakeAnOffer from "../Pages/DashBoard/MakeAnOffer";
 import PrivateRoute from "./PrivateRoute";
 import AgentRoute from "./AgentRoute";
+import AdminRoute from "./AdminRoute";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -98,23 +99,23 @@ export const router = createBrowserRouter([
             {
 
                 path:'/dashboard/adminProfile',
-                element:<AdminPrpfile></AdminPrpfile>
+                element:<AdminRoute><AdminPrpfile></AdminPrpfile></AdminRoute>
             },
            
           
             {
                 path:'/dashboard/manageReviews',
-                element:<Managereviews></Managereviews>
+                element:<AdminRoute><Managereviews></Managereviews></AdminRoute>
             },
             
             {
                 path:'/dashboard/manageUser',
-                element:<ManageUsers></ManageUsers>  
+                element:<AdminRoute><ManageUsers></ManageUsers>  </AdminRoute>
             },
           
             {
                 path:'/dashboardadminPropertis',
-                element:<ManageProperties></ManageProperties>
+                element:<AdminRoute><ManageProperties></ManageProperties></AdminRoute>
             },
           {
             path:"/dashboard/wishlist/offer/:id",

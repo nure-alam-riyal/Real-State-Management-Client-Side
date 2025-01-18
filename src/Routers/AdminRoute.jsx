@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import LoadingSpin from "../Components/Shared/LoadingSpin";
 import useAuth from "../Hooks/useAuth";
 import usePublicAxios from "../Hooks/usePublicAxios";
+import LoadingSpin from "../Components/Shared/LoadingSpin";
 import { Navigate } from "react-router-dom";
 
 
-const AgentRoute = ({children}) => {
+const AdminRoute = ({children}) => {
     const axiosPublic=usePublicAxios()
     const {user,loading}=useAuth()
     const {data:user1={},isLoading}=useQuery({
@@ -17,7 +17,7 @@ const AgentRoute = ({children}) => {
     })
     
     if(loading || isLoading) return <LoadingSpin></LoadingSpin>
-    if(user&& user1?.role==='Agent')
+    if(user&& user1?.role==='Admin')
         return children
 
     else
@@ -25,4 +25,4 @@ const AgentRoute = ({children}) => {
 };
 
 
-export default AgentRoute;
+export default AdminRoute;
