@@ -1,11 +1,45 @@
 
 import PropTypes from 'prop-types';
+import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
+import usePrivetAxios from '../Hooks/usePrivetAxios';
 
-const Card = ({property}) => {
-   
+const Card = ({property,refetch}) => {
+   const axiosPrivate=usePrivetAxios()
     const {image,propertyName,location,agentName,agentImage,
-        varifyStatus,maxPrice,minPrice}=property || {}
+        varifyStatus,maxPrice,minPrice,_id}=property || {}
         console.log(property)
+        const handleDeleteProperty=id=>{
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You want remove it",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "DELETE"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axiosPrivate.delete(`/propertyDelete/${id}`).then((res)=>{
+                  
+                      if(res.data?.deletedCount){
+                        Swal.fire({
+                          title: "Deleted!",
+                          text: "Property has been Delete.",
+                          icon: "success"
+                        });
+                        refetch()
+                      }
+                }
+             
+                )
+                .catch(error=>toast.error(error.message));
+                
+
+            
+            }
+          });
+        }
     return (
         <div className="card glass shadow-xl">
   <figure className="relative">
@@ -25,13 +59,14 @@ const Card = ({property}) => {
     
     <div className="card-actions justify-end">
       <button className='btn bg-yellow-100'>Update</button>
-      <button className="btn bg-red-200">Delete</button>
+      <button onClick={()=>handleDeleteProperty(_id)} className="btn bg-red-200">Delete</button>
     </div>
   </div>
 </div>
     );
 };
 Card.propTypes={
-    property:PropTypes.object
+    property:PropTypes.object,
+    refetch:PropTypes.func
 }
 export default Card;

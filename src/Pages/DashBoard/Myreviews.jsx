@@ -29,13 +29,16 @@ const Myreviews = () => {
         confirmButtonText: " delete"
       }).then((result) => {
         if (result.isConfirmed) {
-            axiosPrivate.delete(`/reviewDelete/${id}`).then(()=>{
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Review has been deleted.",
-                    icon: "success"
-                  });
-                  refetch()
+            axiosPrivate.delete(`/reviewDelete/${id}`).then((res)=>{
+                if(res.data?.deletedCount){
+                                        Swal.fire({
+                                          title: "Deleted!",
+                                          text: "Review has been Removed.",
+                                          icon: "success"
+                                        });
+                                        refetch()
+                                      }
+                                      console.log(res)
             }
          
             )
