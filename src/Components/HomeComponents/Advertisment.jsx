@@ -6,10 +6,10 @@ import CardAllProperties from "../CardAllProperties";
 
 const Advertisment = () => {
     const axiosPublic=usePublicAxios()
-    const {data:allProperties=[],refetch,isLoading}=useQuery({
-        queryKey:['allproperties'],
+    const {data:allProperties=[],isLoading}=useQuery({
+        queryKey:['Properties'],
         queryFn:async () => {
-          const data=  await axiosPublic.get('/allProperties')
+          const data=  await axiosPublic.get('/Properties')
             return data.data
         }
     }) 

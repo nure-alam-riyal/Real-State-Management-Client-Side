@@ -46,7 +46,12 @@ const AuthProvider = ({ children }) => {
                         }
                         console.log(userInfo)
                        axiosPublic.post('/user',userInfo).then(res=>console.log(res.data))
-                       localStorage.setItem('token',import.meta.env.VITE_Acces_Token)
+                     axiosPublic.post('/jwt',{ email:CurretUser?.email})
+                     .then(res=>{
+                        if(res.data.token){
+                            localStorage.setItem('token',res.data.token)
+                        }
+                     })
 
                      }
                      else{
@@ -54,7 +59,7 @@ const AuthProvider = ({ children }) => {
                      }
        }))
        return ()=>unSubscribe()
-    },[])
+    },[axiosPublic])
     const info = {
         createUser,
         signIn,

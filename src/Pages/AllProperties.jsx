@@ -7,7 +7,7 @@ import LoadingSpin from "../Components/Shared/LoadingSpin";
 
 const AllProperties = () => {
     const axiosPrivate=usePrivetAxios()
-    const {data:allProperties=[],refetch,isLoading}=useQuery({
+    const {data:allProperties=[],isLoading}=useQuery({
         queryKey:['allproperties'],
         queryFn:async () => {
           const data=  await axiosPrivate.get('/allProperties')
