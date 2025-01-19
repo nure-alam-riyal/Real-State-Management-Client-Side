@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Navigate, NavLink, Outlet } from "react-router-dom";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
@@ -27,6 +27,7 @@ const DashBoard = () => {
                 <div><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></div>
                 <div><NavLink to='/dashboard/propertyBought'>Property Bought</NavLink></div>
                 <div><NavLink to='/dashboard/myReveiws'>My reviews</NavLink></div>
+                <Navigate to={'/dashboard/userProfile'}></Navigate>
                 </div>)
                 }
            { (user&& user1?.role==='Admin')&&(<div>
@@ -34,15 +35,17 @@ const DashBoard = () => {
             <div><NavLink to='/dashboard/manageUser'>Manage User</NavLink></div>
             <div><NavLink to='/dashboard/manageReviews'>Manage Reviews</NavLink></div>
             <div><NavLink to='/dashboard/adminPropertis'>Manage Properties</NavLink></div>
+            <Navigate to={'/dashboard/adminProfile'}></Navigate>
                 </div>)
             }
 
-           { (user&& user1?.role==='Agent')&&(<div>
+           { (user&& user1?.role==='Agent' || user&& user1?.role==='Fraud')&&(<div>
             <div><NavLink to='/dashboard/agentProfile'>My Profile</NavLink></div>
-            <div><NavLink to='/dashboard/mySoldProperties'></NavLink>My Sold Properties</div>
+            <div><NavLink to='/dashboard/mySoldProperties'>My Sold Properties</NavLink></div>
             <div><NavLink to='/dashboard/addProperty'>Add Property</NavLink></div>
             <div><NavLink to='/dashboard/myaddedProperty'>My Added Properties</NavLink></div>
             <div><NavLink to='/dashboard/requestProperty'>Requested Properties</NavLink></div>
+            <Navigate to={'/dashboard/agentProfile'}></Navigate>
            </div>)
           }
             <div className="divider divider-warning"></div>

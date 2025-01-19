@@ -13,7 +13,7 @@ const MakeAnOffer = () => {
     const {user}=useAuth()
     const axiosPrivate=usePrivetAxios()
     const { data: property = {}, isLoading } = useQuery({
-        queryKey: ['id'],
+        queryKey: [id,'oneproperty'],
         queryFn: async () => {
             const data = await axiosPrivate.get(`/oneproperty/${id}`)
             return data.data
@@ -36,9 +36,7 @@ const MakeAnOffer = () => {
     setOfferRange(minPrice)
     //  setOfferRange2('out of range')
    }
-   else{
-    // setOfferRange2(null)
-   }
+  
 
     
 

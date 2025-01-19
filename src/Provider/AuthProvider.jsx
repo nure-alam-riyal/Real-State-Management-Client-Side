@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes  from 'prop-types'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, deleteUser, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { auth } from "../Firebase/FirebaseAuth";
 
 import usePublicAxios from "../Hooks/usePublicAxios";
@@ -21,6 +21,9 @@ const AuthProvider = ({ children }) => {
     const LogOut = () => {
         SetLoading(true)
         return signOut(auth)
+    }
+    const DeleteUser=()=>{
+      return  deleteUser(user)
     }
     const signInGoogle = () => {
        SetLoading(true)
@@ -66,6 +69,7 @@ const AuthProvider = ({ children }) => {
         LogOut,
         signInGoogle,
         Updateprofile,
+        DeleteUser,
         user,
         loading
 

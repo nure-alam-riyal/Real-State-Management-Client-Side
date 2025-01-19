@@ -3,15 +3,16 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 
 
 const Requestedproperties = () => {
-
+const {user}=useAuth()
   const axiosPrivate = usePrivetAxios()
   const { data: offerProperty = [], isLoading, refetch } = useQuery({
-    queryKey: ['offer'],
+    queryKey: ['agentOffer',user?.email],
     queryFn: async () => {
-      const data = await axiosPrivate('/offer')
+      const data = await axiosPrivate(`/agentOffer/${user?.email}`)
       return data.data
     }
   })

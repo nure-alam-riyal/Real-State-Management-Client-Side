@@ -3,11 +3,12 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const LogIn = () => {
-  const [eye,setEye]=useState(false)
+  const [eye,setEye]=useState(true)
 const {signIn,signInGoogle}=useAuth()
     const handleUserData = (e) => {
 
@@ -60,6 +61,8 @@ const {signIn,signInGoogle}=useAuth()
             <div className="flex justify-center">
                     <div onClick={handleGoogleLogIn} className="bg-blue-500 btn my-4 w-2/3 mx-auto">LogIn With Google</div>
             </div>
+            <p className="text-center my-3 ">Are you New? please<Link to={'/register'} className="text-blue-700"> Sign Up </Link></p>
+
           </div>
         </div>
       </div>

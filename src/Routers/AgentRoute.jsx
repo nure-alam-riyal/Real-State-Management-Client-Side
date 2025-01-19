@@ -17,7 +17,7 @@ const AgentRoute = ({children}) => {
     })
     
     if(loading || isLoading) return <LoadingSpin></LoadingSpin>
-    if(user&& user1?.role==='Agent')
+    if(user&& user1?.role==='Agent'|| user&& user1?.role==='Fraud')
         return children
 
     else

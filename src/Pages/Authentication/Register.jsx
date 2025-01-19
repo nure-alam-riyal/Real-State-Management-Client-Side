@@ -6,13 +6,14 @@ import usePublicAxios from "../../Hooks/usePublicAxios";
 
 import { imageURL } from "../../Utillits.js/ImageCreate";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 
 
 const Register = () => {
  
-  const [eye,setEye]=useState(false)
+  const [eye,setEye]=useState(true)
   const  axiosPublic=usePublicAxios()
   const {createUser,Updateprofile,signInGoogle}=useAuth()
   const handleUser= async e=>{
@@ -79,13 +80,15 @@ const Register = () => {
                               }</div>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Sign Up</button>
               </div>
             </form>
             <div className="divider divider-warning">OR</div>
             <div className="flex justify-center">
                     <div onClick={handleGoogleLogIn} className="bg-blue-500 btn my-4 w-2/3 mx-auto">LogIn With Google</div>
             </div>
+            <p className="text-center my-3 ">Are already create account ? please<Link to={'/login'} className="text-blue-700"> Sign In </Link></p>
+
           </div>
         </div>
       </div>

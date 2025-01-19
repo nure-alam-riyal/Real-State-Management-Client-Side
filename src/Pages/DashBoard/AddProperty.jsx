@@ -1,11 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import { imageURL } from "../../Utillits.js/ImageCreate";
+import LoadingSpin from "../../Components/Shared/LoadingSpin";
 
 
 const AddProperty = () => {
     const {user}=useAuth()
+ 
+   
     const axiosPrivate=usePrivetAxios()
+    const {data={},isLoading}=useQuery({
+        queryKey:['user',user?.email],
+        queryFn:async (params) => {
+           const data= await  axiosPrivate.get(`/user/${user?.email}`)
+           return data.data
+        }
+    })
     const handleProperty=async e=>{
         e.preventDefault()
         const formdata=new FormData(e.target)
@@ -32,6 +43,7 @@ const AddProperty = () => {
       
       
     }
+    if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div className= " flex justify-center">
             <div className="card bg-base-100 w-11/12 md:w-full mx-auto shrink-0 shadow-2xl">
@@ -98,7 +110,10 @@ const AddProperty = () => {
                         <textarea name="description" id="" cols={3}  rows="3" required className="w-full border rounded-2xl p-3" placeholder="Describe the property"></textarea>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Add Property</button>
+                        <button disabled={data?.role==="Fraud" ? 'true':''} className="btn btn-primary">Add Property</button>
+                       {
+                        data?.role==="Fraud"&&( <span className="text-red-500 text-2xl inline-block px-2  py-1 text-center">You are Fraud</span>)
+                       }
                     </div>
                 </form>
             </div>
