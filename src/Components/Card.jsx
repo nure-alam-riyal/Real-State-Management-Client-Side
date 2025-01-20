@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import usePrivetAxios from '../Hooks/usePrivetAxios';
+import { Link } from 'react-router-dom';
 
 const Card = ({property,refetch}) => {
    const axiosPrivate=usePrivetAxios()
@@ -58,7 +59,7 @@ const Card = ({property,refetch}) => {
     <p>${minPrice}-${maxPrice}</p>
     
     <div className="card-actions justify-end">
-      <button className='btn bg-yellow-100'>Update</button>
+      {!(varifyStatus==='rejected')?<Link to={`/dashboard/addedproperty/${_id}`} className='btn bg-yellow-100'>Update</Link>:<p></p>}
       <button onClick={()=>handleDeleteProperty(_id)} className="btn bg-red-200">Delete</button>
     </div>
   </div>

@@ -5,6 +5,7 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const ManageUsers = () => {
@@ -94,7 +95,7 @@ const ManageUsers = () => {
     }
     return (
         <div>
-
+<SectionTitle head={"MY ALL USER"}></SectionTitle>
             <div className="overflow-x-auto">
   <table className="table table-zebra text-center">
     {/* head */}

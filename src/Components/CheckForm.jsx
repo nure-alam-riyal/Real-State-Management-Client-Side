@@ -6,6 +6,7 @@ import LoadingSpin from "./Shared/LoadingSpin";
 import useAuth from '../Hooks/useAuth'
 import toast from "react-hot-toast";
 import { Await } from "react-router-dom";
+import SectionTitle from "./Shared/SectionTitle";
 
 
 const CheckForm = ({offerProperty}) => {
@@ -114,7 +115,9 @@ if(isLoading) <LoadingSpin></LoadingSpin>
     };
   
     return (
-      <form onSubmit={handleSubmit}>
+      <div >
+        <SectionTitle head={'Payment'}></SectionTitle>
+        <form onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
@@ -136,6 +139,7 @@ if(isLoading) <LoadingSpin></LoadingSpin>
         </button>
         <p>{error}</p>
       </form>
+      </div>
     );
 };
 

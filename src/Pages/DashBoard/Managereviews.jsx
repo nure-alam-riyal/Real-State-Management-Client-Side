@@ -46,7 +46,7 @@ const Managereviews = () => {
           });
     }
     return (
-        <div className="">
+        <div className="mt-14">
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
                        {
                             allReviews.map(review=><div key={review?._id}>

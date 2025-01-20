@@ -4,6 +4,7 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const Requestedproperties = () => {
@@ -36,7 +37,7 @@ const {user}=useAuth()
   }
   return (
     <div>
-
+<SectionTitle  head={'Requested Property'}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table table-zebra text-center">
           {/* head */}

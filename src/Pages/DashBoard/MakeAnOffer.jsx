@@ -5,6 +5,7 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const MakeAnOffer = () => {
@@ -70,7 +71,10 @@ const MakeAnOffer = () => {
     return (
         
          
-        <div className= " flex justify-center">
+      <div>
+        <SectionTitle head={'Make Your Offer'}></SectionTitle>
+          <div className= " flex justify-center">
+            
             <div className="card bg-base-100 w-11/12 md:w-full mx-auto shrink-0 shadow-2xl">
                 <form onSubmit={handleUdateProperty} className="card-body">
                  
@@ -155,6 +159,7 @@ const MakeAnOffer = () => {
 
 
         </div>
+      </div>
 
 
     

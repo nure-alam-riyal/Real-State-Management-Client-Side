@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import useAuth from "../../Hooks/useAuth";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 
@@ -20,7 +21,7 @@ const Mysoldproperties = () => {
     console.log(MyPayments)
     return (
         <div>
-
+ <SectionTitle head={'MY Sold Property'}></SectionTitle>
             <div className="overflow-x-auto">
   <table className="table table-zebra text-center">
     {/* head */}

@@ -4,6 +4,7 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 
 import Card from "../../Components/Card";
 import useAuth from "../../Hooks/useAuth";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const Myaddedproperties = () => {
@@ -20,9 +21,10 @@ const Myaddedproperties = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div>
+            <SectionTitle head={"My Added Property"}></SectionTitle>
             <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-3 grid-cols-1">
                 {
-                        allProperty.map(property=><Card key={property?._id} refetch={refetch} property={property}></Card>)
+                        allProperty?.map(property=><Card key={property?._id} refetch={refetch} property={property}></Card>)
                 }
             </div>
             

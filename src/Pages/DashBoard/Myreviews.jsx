@@ -5,6 +5,7 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const Myreviews = () => {
@@ -52,6 +53,7 @@ const Myreviews = () => {
     console.log(reviews)
     return (
         <div>
+          <SectionTitle head={'MY REVIEWS'}></SectionTitle>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
            {
                 reviews.map(review=><div key={review?._id}>

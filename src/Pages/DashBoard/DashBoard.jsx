@@ -53,7 +53,7 @@ const DashBoard = () => {
             <div><NavLink to={'/allProperties'}>All Property</NavLink></div>
            
             </div>
-            <div className="lg:w-9/12 mt-10"
+            <div className="lg:w-9/12 mt-3"
             >
                 <Outlet></Outlet>
             </div>

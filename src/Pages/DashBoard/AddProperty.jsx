@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import { imageURL } from "../../Utillits.js/ImageCreate";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const AddProperty = () => {
@@ -45,7 +46,9 @@ const AddProperty = () => {
     }
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
-        <div className= " flex justify-center">
+       <div>
+        <SectionTitle head={'Added Your Property'}></SectionTitle>
+         <div className= " flex justify-center">
             <div className="card bg-base-100 w-11/12 md:w-full mx-auto shrink-0 shadow-2xl">
                 <form onSubmit={handleProperty} className="card-body">
                     <div className="md:flex justify-between gap-5 space-y-3 items-center">
@@ -120,6 +123,7 @@ const AddProperty = () => {
 
 
         </div>
+       </div>
     );
 };
 

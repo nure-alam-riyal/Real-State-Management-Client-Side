@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import WishlistCard from "../../Components/WishlistCard";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const WishListPages = () => {
@@ -20,6 +21,7 @@ const WishListPages = () => {
   
     return (
         <div>
+            <SectionTitle head={"My WishList"}></SectionTitle>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
             {
                 wishlist.map(list=><WishlistCard key={list?._id} property={list} refetch={refetch}></WishlistCard>)

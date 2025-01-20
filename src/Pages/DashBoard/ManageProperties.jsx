@@ -35,7 +35,7 @@ const ManageProperties = () => {
     }
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
-        <div>
+        <div className="mt-10">
 
         <div className="overflow-x-auto">
 <table className="table table-zebra text-center">

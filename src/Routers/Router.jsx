@@ -26,6 +26,7 @@ import PrivateRoute from "./PrivateRoute";
 import AgentRoute from "./AgentRoute";
 import AdminRoute from "./AdminRoute";
 import PayPages from "../Pages/DashBoard/PayPages";
+import UpdateProperty from "../Pages/DashBoard/UpdateProperty";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -77,11 +78,11 @@ export const router = createBrowserRouter([
             },
             {
               path:"/dashboard/wishlist/offer/:id",
-              element:<MakeAnOffer></MakeAnOffer>
+              element:<PrivateRoute><MakeAnOffer></MakeAnOffer></PrivateRoute>
               
             },{
                      path:"/dashboard/payBil/:id" ,
-                     element:<PayPages></PayPages>
+                     element:<PrivateRoute><PayPages></PayPages></PrivateRoute>
             },
             //agent
             {
@@ -103,6 +104,10 @@ export const router = createBrowserRouter([
             {
                 path:'/dashboard/requestProperty',
                 element:<AgentRoute><Requestedproperties></Requestedproperties>  </AgentRoute> 
+            },
+            {
+                path:"/dashboard/addedproperty/:id",
+                element:<AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>
             },
             //admin
             {
