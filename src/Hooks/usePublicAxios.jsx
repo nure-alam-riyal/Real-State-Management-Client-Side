@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosPublic = axios.create({
-    baseURL: 'http://localhost:1506',
+    baseURL: 'https://server-side-blue-three.vercel.app',
     // timeout: 1000,
     // headers: {'X-Custom-Header': 'foobar'}
   });

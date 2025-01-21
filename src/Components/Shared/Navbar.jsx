@@ -1,10 +1,13 @@
 
 import { Dropdown, Space } from "antd";
 import { HiBars4 } from "react-icons/hi2";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import { Tooltip } from "react-tooltip";
 
 
 const Navbar = () => {
+  const {user,  LogOut}=useAuth()
     const items = [
         {
           key: '1',
@@ -119,8 +122,31 @@ const Navbar = () => {
           }
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+                {
+                    user?
+                    <div className="flex items-center gap-2">
+                        <div className="dropdown dropdown-end">
+      <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+        <img id="riyal" className="w-12 h-12 rounded-full" referrerPolicy="no-referrer" src={user?.photoURL} alt="userName" />
         </div>
+      </div>
+      <Tooltip position='left' anchorSelect="#riyal">
+        <h3 className="text-center">{user?.displayName}</h3>
+        <p className="text-center">{user?.email}</p>
+      </Tooltip>
+      {/* <ul
+        tabIndex="0"
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+        {links2}
+      </ul> */}
+    </div>
+                        
+                        <Link onClick={ LogOut} className="btn font-bold text-lg bg-blue-300" to='login'>Log Out</Link></div>
+                    :
+                    <div><Link className="btn text-lg font-bold bg-blue-300" to='login'>Log In</Link></div>
+                }
+            </div>
       </div>
         </div>
     );

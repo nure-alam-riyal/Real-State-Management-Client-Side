@@ -7,9 +7,9 @@ import CardAllProperties from "../CardAllProperties";
 const Advertisment = () => {
     const axiosPublic=usePublicAxios()
     const {data:allProperties=[],isLoading}=useQuery({
-        queryKey:['Properties'],
+        queryKey:['advertise'],
         queryFn:async () => {
-          const data=  await axiosPublic.get('/Properties')
+          const data=  await axiosPublic.get('/advertise')
             return data.data
         }
     }) 
@@ -19,7 +19,9 @@ const Advertisment = () => {
         <div>
              <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-3 grid-cols-1">
                 {
-                       allProperties.slice(0,4).map(property=><CardAllProperties key={property?._id} property={property}></CardAllProperties>)
+
+                   allProperties.reverse().slice(0,4).map(property=><CardAllProperties key={property?._id} property={property}></CardAllProperties>)
+
                 }
             </div>
         </div>

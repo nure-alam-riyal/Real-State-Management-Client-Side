@@ -27,6 +27,7 @@ import AgentRoute from "./AgentRoute";
 import AdminRoute from "./AdminRoute";
 import PayPages from "../Pages/DashBoard/PayPages";
 import UpdateProperty from "../Pages/DashBoard/UpdateProperty";
+import AdverticesProperty from "../Pages/DashBoard/AdverticesProperty";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -130,8 +131,10 @@ export const router = createBrowserRouter([
             {
                 path:'/dashboardadminPropertis',
                 element:<AdminRoute><ManageProperties></ManageProperties></AdminRoute>
+            },{
+                path:'/dashboard/advertices',
+                element:<AdminRoute><AdverticesProperty></AdverticesProperty></AdminRoute>
             }
-         
             
             
         ]

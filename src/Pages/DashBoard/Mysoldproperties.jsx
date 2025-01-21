@@ -18,7 +18,9 @@ const Mysoldproperties = () => {
     })
     
     if(isLoading) return <LoadingSpin></LoadingSpin>
-    console.log(MyPayments)
+
+    const totalAmout=MyPayments.reduce((sum,payment)=>(sum+payment?.totalPrice),0)
+    console.log(totalAmout)
     return (
         <div>
  <SectionTitle head={'MY Sold Property'}></SectionTitle>
@@ -48,6 +50,10 @@ const Mysoldproperties = () => {
       
     </tbody>
   </table>
+</div>
+
+<div className="my-20">
+<p className="font-bold text-center text-3xl">My sold propety`s Total amount :{totalAmout}</p>
 </div>
         </div>)
 };

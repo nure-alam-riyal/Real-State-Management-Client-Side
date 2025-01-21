@@ -3,33 +3,48 @@ import usePrivetAxios from "../Hooks/usePrivetAxios";
 
 import CardAllProperties from "../Components/CardAllProperties";
 import LoadingSpin from "../Components/Shared/LoadingSpin";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const AllProperties = () => {
-    const [search,setSearch]=useState('')
-    const axiosPrivate=usePrivetAxios()
-    const {data:allProperties=[],isLoading}=useQuery({
-        queryKey:['allproperties',search],
-        queryFn:async () => {
-          const data=  await axiosPrivate.get(`/allProperties?search=${search}`)
-            return data.data
+    // const [max,setMax] =useState('')
+    const [min,setMin] =useState('')
+    // const [range,setRange] =useState('')
+    const [allProperty, setAllProperty] = useState([])
+    const [search, setSearch] = useState('')
+    const axiosPrivate = usePrivetAxios()
+    const { data: allProperties = [], isLoading } = useQuery({
+        queryKey: ['allproperties',min],
+        queryFn: async () => {
+            const data = await axiosPrivate.get(`/allProperties?max=${min}&min=${min}&range=${min}`)
+            return setAllProperty(data.data)
         }
-    }) 
-    if(isLoading) return <LoadingSpin></LoadingSpin>
+    })
+    console.log(min)
+    useEffect(() => {
+        axiosPrivate.get(`/allProperties?search=${search}`).then(res => setAllProperty(res.data))
+    }, [axiosPrivate, search])
+    if (isLoading) return <LoadingSpin></LoadingSpin>
     console.log(allProperties)
     return (
         <div>
             <div className="flex my-8">
-                <div> <p>sorted by Price Range</p></div>
-                <div className=" w-1/3 mx-auto"><input capture className="border px-3 w-full py-2 rounded-xl " type="text" defaultValue={search} onChange={(e)=>setSearch(e.target.value)} name="" placeholder="search by location" id="" /></div>
+                <div> <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn m-1">Sort By </div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                        <li className="btn bg-red-200" onClick={()=>setMin('max')}>Max Price(descending)</li>
+                        <li className="btn bg-blue-300" onClick={()=>setMin('min')}>Min Price(ascending)</li>
+                        <li className="btn bg-yellow-300" onClick={()=>setMin('range')}>Price Range(mix)</li>
+                    </ul>
+                </div></div>
+                <div className=" w-1/3 mx-auto"><input capture className="border px-3 w-full py-2 rounded-xl " type="text" defaultValue={search} onChange={(e) => setSearch(e.target.value)} name="" placeholder="search by location" id="" /></div>
             </div>
             <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-3 grid-cols-1">
                 {
-                       allProperties.map(property=><CardAllProperties key={property?._id} property={property}></CardAllProperties>)
+                    allProperty.map(property => <CardAllProperties key={property?._id} property={property}></CardAllProperties>)
                 }
             </div>
-            
+
         </div>
     );
 };

@@ -35,6 +35,7 @@ const DashBoard = () => {
             <div><NavLink to='/dashboard/manageUser'>Manage User</NavLink></div>
             <div><NavLink to='/dashboard/manageReviews'>Manage Reviews</NavLink></div>
             <div><NavLink to='/dashboard/adminPropertis'>Manage Properties</NavLink></div>
+            <div><NavLink to='/dashboard/advertices'>Advertise Property</NavLink></div>
             <Navigate to={'/dashboard/adminProfile'}></Navigate>
                 </div>)
             }

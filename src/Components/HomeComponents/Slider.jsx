@@ -30,9 +30,9 @@ const Slider = () => {
                     <div className="bg-slider1  rounded-2xl bg-cover h-[600px]">
                         <div className="w-full h-full flex items-center justify-center text-center">
                             <div className="text-center  md:w-10/12 text-white lg:w-8/12">
-                                <h1 className="text-center text-4xl font-bold">Boost Customer Satisfaction and Retention Rates</h1>
-                                <p className="my-5">Manage your restaurant`s financial health by tracking budgets, analyzing expenses, and optimizing revenue streams with advanced financial management tools.</p>
-                                <Link className="btn text-black" to='/allfoods'>Show ALL Foods</Link>
+                                <h1 className="text-center text-4xl font-bold">Seamless Solutions for Managing All Your Real Estate Needs</h1>
+                                <p className="my-5">Transform how you buy, sell, and manage properties with innovative tools, expert guidance, and personalized service for lasting success.</p>
+                                <Link className="btn text-black" to='/allProperties'>Show ALL Property</Link>
                             </div>
                         </div>
                     </div>
@@ -40,10 +40,10 @@ const Slider = () => {
                 <SwiperSlide>
                     <div className="bg-slider2 bg-cover  rounded-2xl h-[600px]">
                         <div className="w-full h-full flex items-center justify-center text-center">
-                            <div className="text-center text-green-400 md:w-10/12 lg:w-8/12">
-                                <h1 className="text-center text-4xl font-bold">Maintain Food Safety Standards with Comprehensive Compliance Tracking Tools</h1>
-                                <p className="my-5">Monitor orders from the moment they are placed until they reach the customer, ensuring accuracy and efficient service every time.</p>
-                                <Link className="btn" to='/allfoods'>Show ALL Foods</Link>
+                            <div className="text-center text-white md:w-10/12 lg:w-8/12">
+                                <h1 className="text-center text-4xl font-bold">Modern Tools for Efficient and Reliable Property Management Services</h1>
+                                <p className="my-5">Streamline your real estate operations with cutting-edge technology and trusted experts, all tailored to your specific needs and goals</p>
+                                <Link className="btn" to='/allProperties'>Show ALL Property</Link>
                             </div>
                         </div>
                     </div>
@@ -51,10 +51,10 @@ const Slider = () => {
                 <SwiperSlide>
                     <div className="bg-slider3 bg-cover  rounded-2xl h-[600px]">
                         <div className="w-full h-full flex items-center justify-center text-center">
-                            <div className="text-center text-blue-400 md:w-10/12 lg:w-8/12">
-                                <h1 className="text-center text-4xl font-bold">Access Restaurant Data Anytime with Secure Cloud-Based Management Platform</h1>
-                                <p className="my-5">Manage all aspects of your restaurant operations, from the kitchen to the dining area, using a single, easy-to-navigate centralized dashboard.</p>
-                                <Link className="btn" to='/allfoods'>Show ALL Foods</Link>
+                            <div className="text-center text-orange-300 md:w-10/12 lg:w-8/12">
+                                <h1 className="text-center text-4xl font-bold">Effortlessly Manage Residential and Commercial Properties with Ease</h1>
+                                <p className="my-5">Experience unmatched simplicity, transparency, and efficiency in all aspects of property management, from tenant interactions to maintenance tasks.</p>
+                                <Link className="btn" to='/allProperties'>Show ALL Property</Link>
                             </div>
                         </div>
                     </div>
@@ -63,9 +63,9 @@ const Slider = () => {
                     <div className="bg-slider4 bg-cover  rounded-2xl h-[600px]">
                         <div className="w-full h-full flex items-center justify-center text-center">
                             <div className="text-center text-black md:w-10/12 lg:w-8/12">
-                                <h1 className="text-center text-4xl font-bold">Foster Customer Loyalty with Engaging and Rewarding Loyalty Programs</h1>
-                                <p className="my-5">Reduce wait times, manage table reservations, and maximize seating capacity using advanced reservation tools that ensure a seamless dining experience for your customers.</p>
-                                <Link className="btn" to='/allfoods'>Show ALL Foods</Link>
+                                <h1 className="text-center text-4xl font-bold">Your Trusted Partner for All Real Estate Management Services</h1>
+                                <p className="my-5">With our expertise and technology, we ensure your properties are well-managed, profitable, and always tenant-ready for success</p>
+                                <Link className="btn" to='/allProperties'>Show ALL Property</Link>
                             </div>
                         </div>
                     </div>
@@ -74,9 +74,9 @@ const Slider = () => {
                     <div className="bg-slider5 bg-cover  rounded-2xl h-[600px]">
                         <div className="w-full h-full flex items-center justify-center text-center">
                             <div className="text-center md:w-10/12 text-yellow-950 lg:w-8/12">
-                                <h1 className="text-center text-4xl font-bold">Gain Complete Financial Control with Advanced Budget Management Tools</h1>
-                                <p className="my-5">Simplify daily restaurant management tasks, from inventory to staff scheduling, with our all-in-one platform designed to optimize operations and enhance customer satisfaction.</p>
-                                <Link className="btn" to='/allfoods'>Show ALL Foods</Link>
+                                <h1 className="text-center text-4xl font-bold">Revolutionizing Property Management for Today’s Real Estate Investors</h1>
+                                <p className="my-5">Simplify your real estate journey with intuitive tools and professional services designed to maximize efficiency and minimize stress</p>
+                                <Link className="btn" to='/allProperties'>Show ALL Property</Link>
                             </div>
                         </div>
                     </div>
