@@ -16,7 +16,7 @@ const Propertybought = () => {
             return data.data
         }
     }) 
-    console.log(myofferProperty)
+    //console.log(myofferProperty)
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
        <div>

@@ -3,6 +3,7 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const ManageProperties = () => {
@@ -21,7 +22,7 @@ const ManageProperties = () => {
           {varification:Vstatus}
          ).then(()=>{
             toast.success(`This property is ${Vstatus}`)
-            if(Vstatus==='verified'){
+            if(Vstatus==='verified' || Vstatus==='rejected' ){
           refetch()
             }
           }
@@ -36,7 +37,7 @@ const ManageProperties = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div className="mt-10">
-
+<SectionTitle head={'Manage All Property'}></SectionTitle>
         <div className="overflow-x-auto">
 <table className="table table-zebra text-center">
 {/* head */}

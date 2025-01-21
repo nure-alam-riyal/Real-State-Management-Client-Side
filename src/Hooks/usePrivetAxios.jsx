@@ -9,7 +9,7 @@ const usePrivetAxios = () => {
   axiosPrivate.interceptors.request.use(function (config) {
     // Do something before request is sent
     const token = localStorage.getItem('token')
-    // console.log('request stopped by interceptors', token)
+    // //console.log('request stopped by interceptors', token)
     config.headers.authorization = `Bearer ${token}`;
     
     return config;

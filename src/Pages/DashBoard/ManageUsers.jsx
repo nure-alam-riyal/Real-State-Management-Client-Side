@@ -18,7 +18,7 @@ const ManageUsers = () => {
             return data.data
         }
     })
-    console.log(allUser)
+    //console.log(allUser)
     if(isLoading) return <LoadingSpin></LoadingSpin>
     const handleDeleteUser=(id)=>{
       Swal.fire({
@@ -50,7 +50,7 @@ const ManageUsers = () => {
             
           // }).catch((error) => {
           //   // An error ocurred
-          //   console.log(error)
+          //   //console.log(error)
           // });
            
             
@@ -72,7 +72,7 @@ const ManageUsers = () => {
         if (result.isConfirmed) {
 
             axiosPrivate.patch(`/userUpdate/${id}`,{role:role}).then((res)=>{
-               console.log(res)
+               //console.log(res)
                   if(res.data?.modifiedCount){
                     refetch()
                     Swal.fire({

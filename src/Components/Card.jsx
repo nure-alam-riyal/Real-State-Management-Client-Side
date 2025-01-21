@@ -9,7 +9,7 @@ const Card = ({property,refetch}) => {
    const axiosPrivate=usePrivetAxios()
     const {image,propertyName,location,agentName,agentImage,
         varifyStatus,maxPrice,minPrice,_id}=property || {}
-        console.log(property)
+        //console.log(property)
         const handleDeleteProperty=id=>{
           Swal.fire({
             title: "Are you sure?",

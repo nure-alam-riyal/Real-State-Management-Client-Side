@@ -4,56 +4,51 @@ import { HiBars4 } from "react-icons/hi2";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { Tooltip } from "react-tooltip";
-
+import logo from '../../assets/image/logo.avif'
 
 const Navbar = () => {
-  const {user,  LogOut}=useAuth()
-    const items = [
-        {
-          key: '1',
-          label: (
-           <div><NavLink to={'/'}>Home</NavLink></div>
-          ),
-        },
-        {
-          key: '2',
-          label: (
-            <div><NavLink to={'/login'}>LogIn</NavLink></div>
-          ),
-         
-         
-        },
-        {
-          key: '3',
-          label: (
-            <div><NavLink to={'/register'}>Regiter</NavLink></div>
-          ),
-         
-         
-        },
-        {
-          key: '4',
-          label: (
-            <div><NavLink to={'/allProperties'}>All Property</NavLink></div>
-          ),
-         
-         
-        },
-        {
-          key: '5',
-          label: (
-            <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
-          ),
-         
-         
-        },
-       
+  const { user, LogOut } = useAuth()
+  const items = [
+    {
+      key: '1',
+      label: (
+        <div><NavLink to={'/'}>Home</NavLink></div>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
+      ),
+
+
+    },
+    {
+      key: '3',
+      label: (
         
-      ];
-     
-    return (
-        <div className="flex justify-center">
-          <div className="navbar bg-base-100 w-11/12 z-20 fixed top-0">
+        <div><NavLink to={'/allProperties'}>All Property</NavLink></div>
+      ),
+
+
+    },
+    {
+      key: '4',
+      label: (
+        <div><NavLink to={'/login'}>LogIn</NavLink></div>
+      
+      ),
+
+
+    },
+    
+
+
+  ];
+
+  return (
+    <div className="flex justify-center">
+      <div className="navbar bg-base-100 w-11/12 z-20 fixed top-0">
         <div className="navbar-start  ">
           {/* <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -84,20 +79,23 @@ const Navbar = () => {
               <li><a>Item 3</a></li>
             </ul>
           </div> */}
-         <div className="lg:hidden">
-         <Dropdown
-    menu={{
-      items,
-    }}
-  >
-    <a onClick={(e) => e.preventDefault()}>
-      <Space>
-      <HiBars4 className="text-xl"></HiBars4> 
-      </Space>
-    </a>
-  </Dropdown>
-         </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <div className="lg:hidden">
+            <Dropdown
+              menu={{
+                items,
+              }}
+            >
+              <a onClick={(e) => e.preventDefault()}>
+                <Space>
+                  <HiBars4 className="text-xl"></HiBars4>
+                </Space>
+              </a>
+            </Dropdown>
+          </div>
+          <div className="flex items-center">
+            <img className="w-20 h-20 hidden md:flex rounded-full" src={logo} alt="" />
+            <div className="px-3 py-2  text-xl">Dream Nest Real Estate</div>
+          </div>
         </div>
         <div className="navbar-center font-semibold hidden lg:flex">
           {/* <ul className="menu menu-horizontal px-1">
@@ -122,34 +120,34 @@ const Navbar = () => {
           }
         </div>
         <div className="navbar-end">
-                {
-                    user?
-                    <div className="flex items-center gap-2">
-                        <div className="dropdown dropdown-end">
-      <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-        <img id="riyal" className="w-12 h-12 rounded-full" referrerPolicy="no-referrer" src={user?.photoURL} alt="userName" />
-        </div>
-      </div>
-      <Tooltip position='left' anchorSelect="#riyal">
-        <h3 className="text-center">{user?.displayName}</h3>
-        <p className="text-center">{user?.email}</p>
-      </Tooltip>
-      {/* <ul
+          {
+            user ?
+              <div className="flex items-center gap-2">
+                <div className="dropdown dropdown-end">
+                  <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                      <img id="riyal" className="w-12 h-12 rounded-full" referrerPolicy="no-referrer" src={user?.photoURL} alt="userName" />
+                    </div>
+                  </div>
+                  <Tooltip position='left' anchorSelect="#riyal">
+                    <h3 className="text-center">{user?.displayName}</h3>
+                    <p className="text-center">{user?.email}</p>
+                  </Tooltip>
+                  {/* <ul
         tabIndex="0"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
         {links2}
       </ul> */}
-    </div>
-                        
-                        <Link onClick={ LogOut} className="btn font-bold text-lg bg-blue-300" to='login'>Log Out</Link></div>
-                    :
-                    <div><Link className="btn text-lg font-bold bg-blue-300" to='login'>Log In</Link></div>
-                }
-            </div>
-      </div>
+                </div>
+
+                <Link onClick={LogOut} className="btn font-bold text-lg bg-blue-300" to='login'>Log Out</Link></div>
+              :
+              <div><Link className="btn text-lg font-bold bg-blue-300" to='/register'>Sign Up</Link></div>
+          }
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

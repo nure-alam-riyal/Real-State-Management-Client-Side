@@ -14,7 +14,7 @@ const Advertisment = () => {
         }
     }) 
     if(isLoading) return <LoadingSpin></LoadingSpin>
-    console.log(allProperties)
+    //console.log(allProperties)
     return (
         <div>
              <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-3 grid-cols-1">

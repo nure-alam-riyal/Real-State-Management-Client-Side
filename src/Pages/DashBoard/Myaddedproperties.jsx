@@ -17,7 +17,7 @@ const Myaddedproperties = () => {
             return data.data
         }
     }) 
-    console.log(allProperty)
+    //console.log(allProperty)
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div>

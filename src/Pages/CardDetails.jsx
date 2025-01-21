@@ -29,7 +29,7 @@ const CardDetails = () => {
         const info={customerEmail:user?.email,
             propertyId:id
         }
-        console.log(info)
+        //console.log(info)
         await axiosPrivate.post('/added-wishlist',info)
         .then((result)=>{
         if(result?.data?.insertedId)
@@ -41,7 +41,7 @@ const CardDetails = () => {
         
         .catch(err=> toast.error(err.message))
     }
-    console.log(property)
+    //console.log(property)
     if (isLoading || loading) return <LoadingSpin></LoadingSpin>
     const { image, agentImage, agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
     return (

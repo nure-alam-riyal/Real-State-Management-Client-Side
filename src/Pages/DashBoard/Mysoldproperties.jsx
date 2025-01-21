@@ -20,7 +20,7 @@ const Mysoldproperties = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
 
     const totalAmout=MyPayments.reduce((sum,payment)=>(sum+payment?.totalPrice),0)
-    console.log(totalAmout)
+    //console.log(totalAmout)
     return (
         <div>
  <SectionTitle head={'MY Sold Property'}></SectionTitle>

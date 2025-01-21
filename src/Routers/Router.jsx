@@ -28,6 +28,7 @@ import AdminRoute from "./AdminRoute";
 import PayPages from "../Pages/DashBoard/PayPages";
 import UpdateProperty from "../Pages/DashBoard/UpdateProperty";
 import AdverticesProperty from "../Pages/DashBoard/AdverticesProperty";
+import Errorpage from "../Pages/Error/Errorpage";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -138,6 +139,9 @@ export const router = createBrowserRouter([
             
             
         ]
+    },{
+        path:'*',
+        element:<Errorpage></Errorpage>
     }
 
 ])

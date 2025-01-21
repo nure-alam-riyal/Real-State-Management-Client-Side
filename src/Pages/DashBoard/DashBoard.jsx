@@ -3,6 +3,8 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import usePublicAxios from "../../Hooks/usePublicAxios";
+import DashBordNavBar from "../../Components/DashBordNavBar";
+import Footer from "../../Components/Shared/Footer";
 
 
 const DashBoard = () => {
@@ -19,8 +21,9 @@ const DashBoard = () => {
     if(loading || isLoading) return <LoadingSpin></LoadingSpin>
     
     return (
-        <div className="lg:flex w-11/12 lg:gap-6 mx-auto ">
-            
+        <div>
+            <div className="lg:flex w-11/12 lg:gap-6 mx-auto ">
+           <div className="lg:hidden"> <DashBordNavBar></DashBordNavBar></div>
                 <div className="lg:w-3/12 hidden  lg:flex pt-20 flex-col bg-slate-200 h-svh text-center font-semibold text-xl">
                 {(user&& user1?.role==='Customer') &&(<div>
                     <div><NavLink to='/dashboard/userProfile'>My Profile</NavLink></div>
@@ -54,10 +57,14 @@ const DashBoard = () => {
             <div><NavLink to={'/allProperties'}>All Property</NavLink></div>
            
             </div>
-            <div className="lg:w-9/12 mt-3"
+            <div className="lg:w-9/12 lg:mt-3 mt-28"
             >
                 <Outlet></Outlet>
+                
             </div>
+        </div>
+        <Footer></Footer>
+
         </div>
     );
 };

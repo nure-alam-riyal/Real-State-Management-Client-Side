@@ -8,7 +8,7 @@ const WishlistCard = ({property,refetch}) => {
    const axiosPrivate=usePrivetAxios()
     const {propertyName,location,agentName,agentImage,propertyId,
         varifyStatus,maxPrice,minPrice,_id}=property || {}
-        console.log(property)
+        //console.log(property)
         const handleRemoveWishlist=(id)=>{
           Swal.fire({
             title: "Are you sure?",

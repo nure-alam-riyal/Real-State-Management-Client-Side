@@ -23,7 +23,7 @@ const {offerRange,propertyName,location,offerDate,_id,propertyId,agentEmail}=off
 //         setClientSecret(res.data.clientSecret)})
 
 // },[axiosPrivate, offerRange])
-// console.log(offerProperty)
+// //console.log(offerProperty)
 // if(offerRange<=0){
   const {data:client={},isLoading}=useQuery({
     queryKey:["create-Intent-server1",offerRange],
@@ -38,7 +38,7 @@ const {offerRange,propertyName,location,offerDate,_id,propertyId,agentEmail}=off
 // }
 if(isLoading) <LoadingSpin></LoadingSpin>
 
-  // console.log(offerRange,client.clientSecret,user)
+  // //console.log(offerRange,client.clientSecret,user)
     const handleSubmit = async (event) => {
       // Block native form submission.
       event.preventDefault();
@@ -65,10 +65,10 @@ if(isLoading) <LoadingSpin></LoadingSpin>
       });
   
       if (error) {
-        // console.log('Payment error', error);
+        // //console.log('Payment error', error);
         setError(error.message)
       } else {
-        // console.log('Payment Method', paymentMethod);
+        // //console.log('Payment Method', paymentMethod);
         setError('')
       }
       const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(client?.clientSecret, {
@@ -84,7 +84,7 @@ if(isLoading) <LoadingSpin></LoadingSpin>
 
 
     else{
-      console.log(paymentIntent)
+      //console.log(paymentIntent)
       const paymentInfo={
         buyerName:user?.displayName,
         buyerEmail:user?.email,
@@ -101,7 +101,7 @@ if(isLoading) <LoadingSpin></LoadingSpin>
       
       axiosPrivate.post('/payment-order',paymentInfo)
       .then((res)=>{
-        console.log(paymentIntent,res)
+        //console.log(paymentIntent,res)
  if(res.data.insertedId){
   toast.success('payment Successful')
  }

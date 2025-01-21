@@ -34,12 +34,13 @@ const AddProperty = () => {
         agentImage:user?.photoURL,
         varifyStatus:'pending...'
       }
-      console.log(PROPERTYInfo)
+      //console.log(PROPERTYInfo)
       await axiosPrivate.post('/property',PROPERTYInfo)
       .then(result=>{
-        console.log(result)
+        //console.log(result)
       })
-      .catch(error=>console.log(error.meassage) )
+      .catch(error=>{//console.log(error.meassage)
+        } )
         
       
       

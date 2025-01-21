@@ -22,7 +22,7 @@ const UpdateProperty = () => {
             return data.data
         }
     })
-    console.log(data)
+    //console.log(data)
     const { data: propety = {}, isLoading: loading ,refetch} = useQuery({
         queryKey: ['oneproperty', id],
         queryFn: async () => {
@@ -57,7 +57,7 @@ const UpdateProperty = () => {
             agentImage: user?.photoURL,
             varifyStatus: varifyStatus
         }
-        console.log(PROPERTYInfo)
+        //console.log(PROPERTYInfo)
         await axiosPrivate.put(`/propertyUpdate/${id}`, PROPERTYInfo)
             .then(result => {
                 if(result.data.matchedCount){
@@ -71,12 +71,13 @@ const UpdateProperty = () => {
                       refetch()
                 }
             })
-            .catch(error => console.log(error.meassage))
+            .catch(error => {//console.log(error.meassage)
+                })
 
 
 
     }
-    console.log(propety)
+    //console.log(propety)
     if (isLoading || loading) return <LoadingSpin></LoadingSpin>
     return (
         <div>

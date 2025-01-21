@@ -39,7 +39,7 @@ const Myreviews = () => {
                                         });
                                         refetch()
                                       }
-                                      console.log(res)
+                                      //console.log(res)
             }
          
             )
@@ -50,7 +50,7 @@ const Myreviews = () => {
         }
       });
     }
-    console.log(reviews)
+    //console.log(reviews)
     return (
         <div>
           <SectionTitle head={'MY REVIEWS'}></SectionTitle>

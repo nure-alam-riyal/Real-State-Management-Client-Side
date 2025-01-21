@@ -13,7 +13,7 @@ const LatestedReviews = () => {
         }
     })
     if(isLoading) return <LoadingSpin></LoadingSpin>
-    console.log(latestReviewa)
+    //console.log(latestReviewa)
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {

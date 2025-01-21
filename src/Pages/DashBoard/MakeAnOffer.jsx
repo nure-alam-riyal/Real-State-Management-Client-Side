@@ -24,7 +24,7 @@ const MakeAnOffer = () => {
     const [offerRange,setOfferRange]=useState(minPrice)
     // const [offerRange2,setOfferRange2]=useState('')
     
-    console.log(property)
+    //console.log(property)
     if(isLoading) {return <LoadingSpin></LoadingSpin>}
     
    if(maxPrice<offerRange)
@@ -59,7 +59,7 @@ const MakeAnOffer = () => {
              }
             //  console.table(info)
              await axiosPrivate.post('/offer',info).then((res)=>{
-                console.log(res)
+                //console.log(res)
                 if(res.data?.insertedId)
                     toast.success('offer succeed')
                 })

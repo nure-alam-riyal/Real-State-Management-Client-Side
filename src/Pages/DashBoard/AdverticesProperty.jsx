@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import toast from "react-hot-toast";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const AdverticesProperty = () => {
@@ -30,6 +31,7 @@ const AdverticesProperty = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div>
+          <SectionTitle head={'Take For Advertisement'}></SectionTitle>
         <div className="flex my-8">
             
         </div>

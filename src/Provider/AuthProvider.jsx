@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, deleteUser, GoogleAuthProvider, onAuthS
 import { auth } from "../Firebase/FirebaseAuth";
 
 import usePublicAxios from "../Hooks/usePublicAxios";
+import toast from "react-hot-toast";
 export const AuthContex = createContext('')
 const AuthProvider = ({ children }) => {
     const axiosPublic=usePublicAxios()
@@ -38,7 +39,7 @@ const AuthProvider = ({ children }) => {
     useEffect(()=>{
        const unSubscribe=onAuthStateChanged(auth,(CurretUser=>{
                      setUser(CurretUser)
-                     console.log(CurretUser)
+                     //console.log(CurretUser)
                      SetLoading(false)
                      if(CurretUser){
                         const userInfo={
@@ -47,8 +48,12 @@ const AuthProvider = ({ children }) => {
                             image:CurretUser?.photoURL,
                             role:'Customer',
                         }
-                        console.log(userInfo)
-                       axiosPublic.post('/user',userInfo).then(res=>console.log(res.data))
+                        //console.log(userInfo)
+                       axiosPublic.post('/user',userInfo).then(res=>{
+                        if(res.data.insertedId){
+                                   toast.success("user login")
+                        }
+                       })
                      axiosPublic.post('/jwt',{ email:CurretUser?.email})
                      .then(res=>{
                         if(res.data.token){

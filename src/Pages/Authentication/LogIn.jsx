@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import login from '../../assets/image/login.png'
+import toast from "react-hot-toast";
 
 
 
@@ -16,28 +18,33 @@ const {signIn,signInGoogle}=useAuth()
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        signIn(email,password).then(user=>console.log(user))
-        .catch(error=>console.log(error));
+      signIn(email,password).then(()=>{toast.success("Login success")
+        })
+        .catch(error=>{ toast.error(error.meassage)
+         });
         
       
     }
     const handleGoogleLogIn=async()=>{
       await signInGoogle().
-       then(Result=>console.log(Result.user))
-       .catch(error=>console.log(error.message))
-      }
+       then(()=>{
+        toast.success("Login success")
+       })
+        
+       .catch(error=>{
+            toast.error(error.meassage)
+       })
+        }
+      
     return (
-        <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-              quasi. In deleniti eaque aut repudiandae et a id nisi.
-            </p>
+        <div className="hero bg-base-200 items-center min-h-screen">
+        <div className="hero-content flex justify-center items-center flex-col lg:flex-row-reverse">
+          <div className="text-center ">
+            <h1 className="text-5xl font-bold mb-8">Login now!</h1>
+                 <img src={login} alt="" />
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form onSubmit={handleUserData} className="card-body">
+          <div className="card bg-base-100  w-full max-w-sm shrink-0 shadow-2xl">
+            <form onSubmit={handleUserData}  className="card-body xl:pt-10">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

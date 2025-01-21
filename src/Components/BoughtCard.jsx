@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const BoughtCard = ({property}) => {
     const {propertyName,location,agentName,agentImage,image,
         buyingStatus,maxPrice,minPrice,offerRange,_id}=property || {}
-        console.log(property)
+        //console.log(property)
     return (
         <div className="card glass shadow-xl">
         <figure className="relative">
