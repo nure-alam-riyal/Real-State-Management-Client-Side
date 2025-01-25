@@ -1,6 +1,6 @@
 ### live site link:
 # https://real-state-asset.web.app/
-
+### git client-side   https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-nure-alam-riyal
 ### Dependencies
  * "@stripe/react-stripe-js": "^3.1.1",
  *   "@stripe/stripe-js": "^5.5.0",

@@ -30,9 +30,9 @@ const {offerRange,propertyName,location,offerDate,_id,propertyId,agentEmail}=off
     queryKey:["create-Intent-server1",offerRange],
     queryFn:async () => {
       if(offerRange>=0){
-        // const data=   await axiosPrivate.post('/create-Intent-server1',{price:offerRange})
+        const data=   await axiosPrivate.post('/create-Intent-server1',{price:offerRange})
            
-        const data=   await axios.post('http://localhost:1506/create-Intent-server1',{price:offerRange})
+        // const data=   await axios.post('https://server-side-blue-three.vercel.app/create-Intent-server1',{price:offerRange})
            
     return data.data
 
