@@ -46,14 +46,14 @@ const CardDetails = () => {
     const { image, agentImage, agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
     return (
         <div>
-            <div className="card lg:card-side h-[450px] bg-base-100 shadow-xl">
+            <div className="card lg:card-side lg:h-[450px] bg-base-100 shadow-xl">
                 <figure className="lg:w-1/2 h-full ">
                     <img className="h-full w-full"
                         src={image}
                         alt={propertyName} 
                         referrerPolicy='no-referrer'/>
                 </figure>
-                <div className="card-body w-1/2">
+                <div className="card-body lg:w-1/2">
                 <div className='flex gap-2 font-bold items-center'>
                         <img className='h-8 w-8 rounded-full' referrerPolicy="no-referrer" src={agentImage} alt="" />
                       <div>

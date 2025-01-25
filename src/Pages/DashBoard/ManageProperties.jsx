@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import toast from "react-hot-toast";
-import { useState } from "react";
+
 import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
@@ -36,7 +36,7 @@ const ManageProperties = () => {
     }
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
-        <div className="mt-10">
+        <div className="mt-10 mb-12">
 <SectionTitle head={'Manage All Property'}></SectionTitle>
         <div className="overflow-x-auto">
 <table className="table table-zebra text-center">

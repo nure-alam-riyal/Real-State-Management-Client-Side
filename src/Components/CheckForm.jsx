@@ -5,8 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSpin from "./Shared/LoadingSpin";
 import useAuth from '../Hooks/useAuth'
 import toast from "react-hot-toast";
-import { Await } from "react-router-dom";
+
 import SectionTitle from "./Shared/SectionTitle";
+import axios from "axios";
 
 
 const CheckForm = ({offerProperty}) => {
@@ -29,13 +30,17 @@ const {offerRange,propertyName,location,offerDate,_id,propertyId,agentEmail}=off
     queryKey:["create-Intent-server1",offerRange],
     queryFn:async () => {
       if(offerRange>=0){
-        const data=   await axiosPrivate.post('/create-Intent-server1',{price:offerRange})
+        // const data=   await axiosPrivate.post('/create-Intent-server1',{price:offerRange})
+           
+        const data=   await axios.post('http://localhost:1506/create-Intent-server1',{price:offerRange})
            
     return data.data
+
       }
     }
   })
 // }
+console.log(client,offerProperty)
 if(isLoading) <LoadingSpin></LoadingSpin>
 
   // //console.log(offerRange,client.clientSecret,user)

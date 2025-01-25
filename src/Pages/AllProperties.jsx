@@ -5,9 +5,16 @@ import CardAllProperties from "../Components/CardAllProperties";
 import LoadingSpin from "../Components/Shared/LoadingSpin";
 import { useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import useAuth from "../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 
 const AllProperties = () => {
+const {user}=useAuth()
+const navigate=useNavigate()
+if(!user){
+navigate('/login')
+}
     // const [max,setMax] =useState('')
     const [min,setMin] =useState('')
     // const [range,setRange] =useState('')

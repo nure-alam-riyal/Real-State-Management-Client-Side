@@ -29,6 +29,7 @@ import PayPages from "../Pages/DashBoard/PayPages";
 import UpdateProperty from "../Pages/DashBoard/UpdateProperty";
 import AdverticesProperty from "../Pages/DashBoard/AdverticesProperty";
 import Errorpage from "../Pages/Error/Errorpage";
+import ProtectRoute from "./protectRoute";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -45,10 +46,10 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },{
                 path:'/allProperties',
-                element:<AllProperties></AllProperties>
+                element:<ProtectRoute><AllProperties></AllProperties></ProtectRoute>
             },{
                 path:'/allProperties/:id',
-                element:<CardDetails></CardDetails>
+                element:<ProtectRoute><CardDetails></CardDetails></ProtectRoute>
             },{
                    path:'/allProperties/review/:id',
                    element:<Reveiws></Reveiws>
@@ -58,7 +59,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element:<DashBoard></DashBoard>,
+        element:<ProtectRoute><DashBoard></DashBoard></ProtectRoute>,
         children:[
             //user
             {

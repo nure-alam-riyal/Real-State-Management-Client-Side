@@ -6,14 +6,15 @@ import usePublicAxios from "../../Hooks/usePublicAxios";
 import rigister from '../../assets/lottie/registraton.json'
 import { imageURL } from "../../Utillits.js/ImageCreate";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
+import toast from "react-hot-toast";
 
 
 
 
 const Register = () => {
- 
+  const navigate=useNavigate()
   const [eye,setEye]=useState(true)
   const  axiosPublic=usePublicAxios()
   const {createUser,Updateprofile,signInGoogle}=useAuth()
@@ -25,37 +26,67 @@ const Register = () => {
     const password=e.target.password.value
     const image=await imageURL(photo)
   const  info={userName:name,image,email,role:"Customer"}
+  
   //console.log(info)
-   await createUser(email,password).then(
-     await Updateprofile(name,image).then(async()=>{
+  const passA = /(?=.*[A-Z])/
+    const passa = /(?=.*[a-z])/
+    const pass6 = /.{6,}/
+   const special = /(?=.*[@$!%*?&])/
+    if (!passA.test(password)) {
+      toast.error('Password need one UpperCase Later')
+      return
+    }
+    else if (!passa.test(password)) {
+      toast.error('Password need one LowerCase Later')
+      return
+    }
+    else if (!pass6.test(password)) {
+      toast.error('Password  need at least 6  character and One Number')
+      return
+    }
+    else if(!special.test(password)){
+      toast.error('Password  need one special latter')
+      return
+    }
+    else {
+    createUser(email,password).then(
+      Updateprofile(name,image).then(async()=>{
+      navigate('/')
+      console.log(info)
+     await axiosPublic.post('/user',info).then(()=>{
+        toast.success("user login")
       
-      await axiosPublic.post('/user',info).then(res=>{
-        //console.log(res.data)
       })
 
+      
       }).catch(error=>{
-        //console.log(error)
+       toast.error(error.message)
         })
     )
     .catch()
-   }
+   }}
    const handleGoogleLogIn=async()=>{
    await signInGoogle().
-    then(Result=>{//console.log(Result.user)
+    then(()=>{
+    
+      toast.success("login by google")
+      navigate('/')
       })
     .catch(error=>{
+      toast.error(error.message)
+
       })
    }
   
     return (
         <div className="hero bg-base-200 py-10 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content p-0 flex-col lg:flex-row-reverse">
           <div className="text-center xl:ml-20">
-            <h1 className="text-5xl text-center font-bold">Registeration Now</h1>
-           <Lottie animationData={rigister}> </Lottie>
+            <h1 className="text-5xl text-center font-bold">Registeration Now  </h1>
+          <div className="w-full "> <Lottie className="w-full" animationData={rigister}> </Lottie></div>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form onSubmit={handleUser} className="card-body">
+          <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl">
+            <form onSubmit={handleUser} className="card-body p-3  w-full">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -66,7 +97,7 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Photo</span>
                 </label>
-               <div> <input type="file" name="photo"  placeholder="Take your Photo" className="input flex justify-center border-none input-bordered" required /></div>
+               <div> <input type="file" name="photo"  placeholder="Take your Photo" className="input flex w-[320px] border  justify-center border-none input-bordered" required /></div>
               </div>
               <div className="form-control">
                 <label className="label">

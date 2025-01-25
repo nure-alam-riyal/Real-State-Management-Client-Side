@@ -7,6 +7,7 @@ import usePublicAxios from "../Hooks/usePublicAxios";
 import toast from "react-hot-toast";
 export const AuthContex = createContext('')
 const AuthProvider = ({ children }) => {
+    const [wait,setWait]=useState(false)
     const axiosPublic=usePublicAxios()
     const [user,setUser]=useState('')
     const [loading,SetLoading]=useState(true)
@@ -30,8 +31,8 @@ const AuthProvider = ({ children }) => {
        SetLoading(true)
         return signInWithPopup(auth, provider)
     }
-    const Updateprofile=(name,photo)=>{
- return updateProfile(auth.currentUser,{
+    const Updateprofile= async(name,photo)=>{
+      return  updateProfile(auth.currentUser,{
         displayName:name,
         photoURL:photo,
  })
@@ -49,7 +50,7 @@ const AuthProvider = ({ children }) => {
                             role:'Customer',
                         }
                         //console.log(userInfo)
-                       axiosPublic.post('/user',userInfo).then(res=>{
+                      axiosPublic.post('/user',userInfo).then(res=>{
                         if(res.data.insertedId){
                                    toast.success("user login")
                         }
@@ -76,7 +77,7 @@ const AuthProvider = ({ children }) => {
         Updateprofile,
         DeleteUser,
         user,
-        loading
+        loading,setWait
 
     }
     return (

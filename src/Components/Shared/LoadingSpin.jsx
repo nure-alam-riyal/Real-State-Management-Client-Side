@@ -2,7 +2,8 @@
 
 const LoadingSpin = () => {
     return (
-        <div>
+        <div className="flex justify-center items-center h-[500px]">
+            <div className="w-[400px]">
     <span className="loading loading-spinner text-primary"></span>
 <span className="loading loading-spinner text-secondary"></span>
 <span className="loading loading-spinner text-accent"></span>
@@ -12,6 +13,7 @@ const LoadingSpin = () => {
 <span className="loading loading-spinner text-warning"></span>
 <span className="loading loading-spinner text-error"></span>
 </div>
+        </div>
     );
 };
 

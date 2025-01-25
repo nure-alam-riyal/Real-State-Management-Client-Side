@@ -4,7 +4,7 @@ import useAuth from "../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import usePublicAxios from "../Hooks/usePublicAxios";
 
-
+import PropTypes from 'prop-types'
 const PrivateRoute = ({children}) => {
     const axiosPublic=usePublicAxios()
     const {user,loading}=useAuth()
@@ -21,7 +21,10 @@ const PrivateRoute = ({children}) => {
         return children
 
     else
-    <Navigate to={'/login'}></Navigate>
+   return <Navigate to={'/login'} state={location?.pathname}></Navigate>
 };
+PrivateRoute.propTypes={
+    children:PropTypes.node
+}
 
 export default PrivateRoute;

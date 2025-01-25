@@ -1,4 +1,4 @@
-import { useQueries, useQuery } from "@tanstack/react-query";
+
 import SectionTitle from "../../Components/Shared/SectionTitle";
 import useAuth from "../../Hooks/useAuth";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
@@ -7,6 +7,8 @@ import { imageURL } from "../../Utillits.js/ImageCreate";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
 
 
 const UpdateProperty = () => {
@@ -32,22 +34,24 @@ const UpdateProperty = () => {
     })
     
     const {maxPrice,minPrice,propertyName,location,description,varifyStatus,image}=propety || {}
+    console.log(image)
     const [pic,setPic]=useState(image)
+    console.log(pic)
     const handleProperty = async e => {
         e.preventDefault()
         const formdata = new FormData(e.target)
         const data = Object.fromEntries(formdata.entries())
-        const { image, maxprice, minprice, ...newdata } = data
+        const { image1, maxprice, minprice, ...newdata } = data
         const maxPrice = parseFloat(maxprice)
         const minPrice = parseFloat(minprice)
-         if(image.size){
-            const photo = await imageURL(image)
+
+    console.log(image1)
+         if(image1?.size){
+            const photo = await imageURL(image1)
        
             setPic(photo)
          }
-       else{
-        setPic(image)
-       }
+      
         const PROPERTYInfo = {
             maxPrice,
             minPrice,
@@ -57,7 +61,7 @@ const UpdateProperty = () => {
             agentImage: user?.photoURL,
             varifyStatus: varifyStatus
         }
-        //console.log(PROPERTYInfo)
+        console.log(PROPERTYInfo)
         await axiosPrivate.put(`/propertyUpdate/${id}`, PROPERTYInfo)
             .then(result => {
                 if(result.data.matchedCount){
@@ -71,7 +75,7 @@ const UpdateProperty = () => {
                       refetch()
                 }
             })
-            .catch(error => {//console.log(error.meassage)
+            .catch(error => { toast.error(error.message)
                 })
 
 
@@ -110,7 +114,7 @@ const UpdateProperty = () => {
                                 <label className="label">
                                     <span className="label-text">Give A Picture</span>
                                 </label>
-                                <div className="mx-auto w-[90%]"> <input  type="file" name="image" placeholder="Take a Picture"  /></div>
+                                <div className="mx-auto w-[90%]"> <input  type="file" name="image1" placeholder="Take a Picture"  /></div>
                             </div>
                         </div>
                         <div className="lg:flex gap-5">

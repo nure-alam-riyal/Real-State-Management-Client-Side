@@ -1,5 +1,7 @@
 import Advertisment from "../Components/HomeComponents/Advertisment";
 import LatestedReviews from "../Components/HomeComponents/LatestedReviews";
+import LunchNEST from "../Components/HomeComponents/LunchNEST";
+import ProfesionnalChose from "../Components/HomeComponents/ProfesionnalChose";
 import Slider from "../Components/HomeComponents/Slider";
 import SectionTitle from "../Components/Shared/SectionTitle";
 
@@ -22,6 +24,12 @@ const Home = () => {
                     <div >
                         <LatestedReviews></LatestedReviews>
                     </div>
+            </section>
+            <section>
+                <LunchNEST></LunchNEST>
+            </section>
+            <section>
+                <ProfesionnalChose></ProfesionnalChose>
             </section>
             
         </div>

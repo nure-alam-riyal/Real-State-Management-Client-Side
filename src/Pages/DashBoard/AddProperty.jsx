@@ -4,6 +4,8 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import { imageURL } from "../../Utillits.js/ImageCreate";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 const AddProperty = () => {
@@ -13,7 +15,7 @@ const AddProperty = () => {
     const axiosPrivate=usePrivetAxios()
     const {data={},isLoading}=useQuery({
         queryKey:['user',user?.email],
-        queryFn:async (params) => {
+        queryFn:async () => {
            const data= await  axiosPrivate.get(`/user/${user?.email}`)
            return data.data
         }
@@ -36,10 +38,14 @@ const AddProperty = () => {
       }
       //console.log(PROPERTYInfo)
       await axiosPrivate.post('/property',PROPERTYInfo)
-      .then(result=>{
-        //console.log(result)
+      .then(()=>{
+        Swal.fire({
+            title: "Added Property",
+            icon: "success",
+            draggable: true
+          });
       })
-      .catch(error=>{//console.log(error.meassage)
+      .catch(error=>{toast.error(error.message)
         } )
         
       

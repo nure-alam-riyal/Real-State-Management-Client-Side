@@ -1,13 +1,44 @@
 
 import { Dropdown, Space } from "antd";
 import { HiBars4 } from "react-icons/hi2";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { Tooltip } from "react-tooltip";
 import logo from '../../assets/image/logo.avif'
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, LogOut } = useAuth()
+  const navigate=useNavigate()
+  const handlelogOut=async()=>{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You wnat LogOut!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout"
+    }).then((result) => {
+     
+      if (result.isConfirmed) {
+          LogOut().then(async()=>{
+           await navigate('/')
+            await  Swal.fire({
+
+                 
+                  text: "LogOut Successed",
+                  icon: "success"
+
+                });
+               
+          }).catch(error=>toast.error(error.message))
+          
+       
+      }
+    });
+}
   const items = [
     {
       key: '1',
@@ -140,7 +171,7 @@ const Navbar = () => {
       </ul> */}
                 </div>
 
-                <Link onClick={LogOut} className="btn font-bold text-lg bg-blue-300" to='login'>Log Out</Link></div>
+                <div onClick={handlelogOut} className="btn font-bold text-lg bg-blue-300">Log Out</div></div>
               :
               <div><Link className="btn text-lg font-bold bg-blue-300" to='/register'>Sign Up</Link></div>
           }

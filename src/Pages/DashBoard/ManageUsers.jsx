@@ -4,12 +4,12 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import useAuth from "../../Hooks/useAuth";
+
 import SectionTitle from "../../Components/Shared/SectionTitle";
 
 
 const ManageUsers = () => {
-  const {DeleteUser}=useAuth()
+  
     const axiosPrivate=usePrivetAxios()
     const {data:allUser,isLoading ,refetch}=useQuery({
         queryKey:['alluser',axiosPrivate],
@@ -94,7 +94,7 @@ const ManageUsers = () => {
 
     }
     return (
-        <div>
+        <div className="mb-12">
 <SectionTitle head={"MY ALL USER"}></SectionTitle>
             <div className="overflow-x-auto">
   <table className="table table-zebra text-center">
@@ -109,7 +109,7 @@ const ManageUsers = () => {
       </tr>
     </thead>
     <tbody>
-      {allUser.map((user,index)=><tr key={user._id}>
+      {allUser?.map((user,index)=><tr key={user._id}>
         <th>{index+1}</th>
         <td>{user?.userName}</td>
         <td>{user?.email}</td>

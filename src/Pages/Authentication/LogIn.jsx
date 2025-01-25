@@ -3,15 +3,19 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from '../../assets/image/login.png'
 import toast from "react-hot-toast";
 
 
 
 const LogIn = () => {
+  const location=useLocation()
+  const navigate=useNavigate()
+  const from = location?.state || '/'
   const [eye,setEye]=useState(true)
 const {signIn,signInGoogle}=useAuth()
+console.log(from)
     const handleUserData = (e) => {
 
 
@@ -19,8 +23,9 @@ const {signIn,signInGoogle}=useAuth()
         const email = e.target.email.value;
         const password = e.target.password.value;
       signIn(email,password).then(()=>{toast.success("Login success")
+               navigate(from)
         })
-        .catch(error=>{ toast.error(error.meassage)
+        .catch(error=>{ toast.error(error.message)
          });
         
       
@@ -29,10 +34,11 @@ const {signIn,signInGoogle}=useAuth()
       await signInGoogle().
        then(()=>{
         toast.success("Login success")
+        navigate(from)
        })
         
        .catch(error=>{
-            toast.error(error.meassage)
+            toast.error(error.message)
        })
         }
       

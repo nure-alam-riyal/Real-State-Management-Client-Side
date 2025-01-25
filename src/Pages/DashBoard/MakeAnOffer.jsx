@@ -20,7 +20,7 @@ const MakeAnOffer = () => {
             return data.data
         }
     })
-    const {  agentName,_id, propertyName,location, agentEmail, maxPrice, minPrice } = property || {}
+    const {  agentName, propertyName,location, agentEmail, maxPrice, minPrice } = property || {}
     const [offerRange,setOfferRange]=useState(minPrice)
     // const [offerRange2,setOfferRange2]=useState('')
     
@@ -71,7 +71,7 @@ const MakeAnOffer = () => {
     return (
         
          
-      <div>
+      <div className="mb-12">
         <SectionTitle head={'Make Your Offer'}></SectionTitle>
           <div className= " flex justify-center">
             
