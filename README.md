@@ -65,8 +65,8 @@ Ensure you have the following installed before running the project:
 ### **2️⃣ Clone the Repository**  
 
 ```sh
-git clone https://github.com/your-username/real-estate-management.git
-cd real-estate-management
+git clone https://github.com/nure-alam-riyal/Real-State-Management-Client-Side.git
+cd Real-State-Management-Client-Side
 ```
 
 ### **3️⃣ Install Dependencies**  
@@ -193,10 +193,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-### ✅ **What's New in This Version?**  
-✔ **Live Demo Link** added  
-✔ **More structured and detailed formatting**  
-✔ **Enhanced dependencies section with descriptions**  
-✔ **Improved troubleshooting section**  
 
-Would you like any **further modifications**? 😊
