@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const Myreviews = () => {
@@ -53,6 +54,9 @@ const Myreviews = () => {
     //console.log(reviews)
     return (
         <div>
+           <Helmet>
+        <title>My Reviews | Dream Nest Real Estate</title>
+         </Helmet>
           <SectionTitle head={'MY REVIEWS'}></SectionTitle>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
            {

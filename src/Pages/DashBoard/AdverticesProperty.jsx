@@ -3,6 +3,7 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import toast from "react-hot-toast";
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const AdverticesProperty = () => {
@@ -31,6 +32,9 @@ const AdverticesProperty = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div>
+           <Helmet>
+        <title>Advrtices | Dream Nest Real Estate</title>
+         </Helmet>
           <SectionTitle head={'Take For Advertisement'}></SectionTitle>
         <div className="flex my-8">
             

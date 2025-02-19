@@ -9,6 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 
@@ -80,6 +81,9 @@ const Register = () => {
   
     return (
         <div className="hero bg-base-200 py-10 min-h-screen">
+           <Helmet>
+        <title>Registration | Dream Nest Real Estate</title>
+         </Helmet>
         <div className="hero-content p-0 flex-col lg:flex-row-reverse">
           <div className="text-center xl:ml-20">
             <h1 className="text-5xl text-center font-bold">Registeration Now  </h1>

@@ -4,11 +4,14 @@ import LunchNEST from "../Components/HomeComponents/LunchNEST";
 import ProfesionnalChose from "../Components/HomeComponents/ProfesionnalChose";
 import Slider from "../Components/HomeComponents/Slider";
 import SectionTitle from "../Components/Shared/SectionTitle";
-
+import {Helmet} from "react-helmet";
 
 const Home = () => {
     return (
         <div>
+             <Helmet>
+        <title>Home | Dream Nest Real Estate</title>
+         </Helmet>
             <section>
                    <Slider></Slider>
             </section>

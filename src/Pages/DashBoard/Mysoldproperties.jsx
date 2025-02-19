@@ -3,6 +3,7 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import useAuth from "../../Hooks/useAuth";
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 
@@ -23,6 +24,9 @@ const Mysoldproperties = () => {
     //console.log(totalAmout)
     return (
         <div>
+           <Helmet>
+        <title>My sold Properties | Dream Nest Real Estate</title>
+         </Helmet>
  <SectionTitle head={'MY Sold Property'}></SectionTitle>
             <div className="overflow-x-auto">
   <table className="table table-zebra text-center">

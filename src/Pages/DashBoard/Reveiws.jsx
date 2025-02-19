@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 const Reveiws = () => {
@@ -26,6 +27,9 @@ const Reveiws = () => {
       }
     return (
          <div className="card bg-base-100 w-full  shrink-0 shadow-2xl">
+           <Helmet>
+        <title>Reveiws | Dream Nest Real Estate</title>
+         </Helmet>
                     <form onSubmit={handleReview} className="card-body">
                       <div className="form-control">
                        

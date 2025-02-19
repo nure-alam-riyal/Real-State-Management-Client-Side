@@ -9,6 +9,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 
 const UpdateProperty = () => {
@@ -85,6 +86,9 @@ const UpdateProperty = () => {
     if (isLoading || loading) return <LoadingSpin></LoadingSpin>
     return (
         <div>
+             <Helmet>
+        <title>Update Property | Dream Nest Real Estate</title>
+         </Helmet>
             <SectionTitle head={'Update Your Property'}></SectionTitle>
             <div className=" flex justify-center">
                 <div className="card bg-base-100 w-11/12 md:w-full mx-auto shrink-0 shadow-2xl">

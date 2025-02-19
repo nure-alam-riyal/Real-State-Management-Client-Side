@@ -5,6 +5,7 @@ import LoadingSpin from "../Components/Shared/LoadingSpin";
 import { format } from "date-fns";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 const CardDetails = () => {
@@ -46,6 +47,9 @@ const CardDetails = () => {
     const { image, agentImage, agentName,_id, propertyName,location, varifyStatus,description,agentEmail, maxPrice, minPrice } = property || {}
     return (
         <div>
+             <Helmet>
+        <title>Details  | Dream Nest Real Estate</title>
+         </Helmet>
             <div className="card lg:card-side lg:h-[450px] bg-base-100 shadow-xl">
                 <figure className="lg:w-1/2 h-full ">
                     <img className="h-full w-full"

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import Profile from "../../Components/Shared/Profile";
+import { Helmet } from "react-helmet";
 
 
 const UserProfile = () => {
@@ -17,6 +18,9 @@ const UserProfile = () => {
 
     return (
         <div>
+             <Helmet>
+        <title>Customer | Dream Nest Real Estate</title>
+         </Helmet>
             <Profile user={data}></Profile>
             
         </div>

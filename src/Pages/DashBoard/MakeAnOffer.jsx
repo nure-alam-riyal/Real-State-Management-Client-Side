@@ -6,6 +6,7 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const MakeAnOffer = () => {
@@ -72,6 +73,9 @@ const MakeAnOffer = () => {
         
          
       <div className="mb-12">
+         <Helmet>
+        <title>Create OFFER | Dream Nest Real Estate</title>
+         </Helmet>
         <SectionTitle head={'Make Your Offer'}></SectionTitle>
           <div className= " flex justify-center">
             

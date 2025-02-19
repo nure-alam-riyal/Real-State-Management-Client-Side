@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from '../../assets/image/login.png'
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 
@@ -44,6 +45,9 @@ console.log(from)
       
     return (
         <div className="hero bg-base-200 items-center min-h-screen">
+           <Helmet>
+        <title>Login | Dream Nest Real Estate</title>
+         </Helmet>
         <div className="hero-content flex justify-center items-center flex-col lg:flex-row-reverse">
           <div className="text-center ">
             <h1 className="text-5xl font-bold mb-8">Login now!</h1>

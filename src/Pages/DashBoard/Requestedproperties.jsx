@@ -5,6 +5,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const Requestedproperties = () => {
@@ -37,6 +38,9 @@ const {user}=useAuth()
   }
   return (
     <div>
+       <Helmet>
+        <title>Requested Property | Dream Nest Real Estate</title>
+         </Helmet>
 <SectionTitle  head={'Requested Property'}></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table table-zebra text-center">

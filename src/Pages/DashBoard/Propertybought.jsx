@@ -4,6 +4,7 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import BoughtCard from "../../Components/BoughtCard";
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const Propertybought = () => {
@@ -20,6 +21,9 @@ const Propertybought = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
        <div>
+         <Helmet>
+        <title>Property Bouhgt | Dream Nest Real Estate</title>
+         </Helmet>
         <SectionTitle head={"My Bought Property"}></SectionTitle>
                    <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-3 grid-cols-1">
                        {

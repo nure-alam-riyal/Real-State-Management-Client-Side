@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import useAuth from "../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const AllProperties = () => {
@@ -36,6 +37,9 @@ navigate('/login')
     //console.log(allProperties)
     return (
         <div>
+             <Helmet>
+        <title>All Properties | Dream Nest Real Estate</title>
+         </Helmet>
             <div className="flex my-8 items-center">
                 <div> <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn m-1 flex items-center text-2xl">Sort By <RiArrowDropDownLine className="text-3xl" /> </div>

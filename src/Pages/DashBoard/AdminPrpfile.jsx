@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import Profile from "../../Components/Shared/Profile";
+import { Helmet } from "react-helmet";
 
 
 const AdminPrpfile = () => {
@@ -26,6 +27,10 @@ if(isLoading) return <div>
 </div>
     return (
         <div>
+             <Helmet>
+        <title>Admin | Dream Nest Real Estate</title>
+         </Helmet>
+            
             <Profile user={userr}></Profile>
             
         </div>

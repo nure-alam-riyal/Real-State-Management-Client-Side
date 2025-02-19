@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const ManageUsers = () => {
@@ -95,6 +96,9 @@ const ManageUsers = () => {
     }
     return (
         <div className="mb-12">
+           <Helmet>
+        <title>Manage User | Dream Nest Real Estate</title>
+         </Helmet>
 <SectionTitle head={"MY ALL USER"}></SectionTitle>
             <div className="overflow-x-auto">
   <table className="table table-zebra text-center">

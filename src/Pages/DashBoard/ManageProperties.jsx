@@ -4,6 +4,7 @@ import LoadingSpin from "../../Components/Shared/LoadingSpin";
 import toast from "react-hot-toast";
 
 import SectionTitle from "../../Components/Shared/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const ManageProperties = () => {
@@ -37,6 +38,9 @@ const ManageProperties = () => {
     if(isLoading) return <LoadingSpin></LoadingSpin>
     return (
         <div className="mt-10 mb-12">
+           <Helmet>
+        <title>ManageProperties | Dream Nest Real Estate</title>
+         </Helmet>
 <SectionTitle head={'Manage All Property'}></SectionTitle>
         <div className="overflow-x-auto">
 <table className="table table-zebra text-center">
