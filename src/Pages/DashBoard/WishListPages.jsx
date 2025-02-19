@@ -29,6 +29,8 @@ const WishListPages = () => {
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-3">
             {
                 wishlist.map(list=><WishlistCard key={list?._id} property={list} refetch={refetch}></WishlistCard>)
+
+                
             }
            </div>
         </div>
