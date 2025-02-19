@@ -49,7 +49,9 @@ const Navbar = () => {
     {
       key: '2',
       label: (
+       user&&(
         <div><NavLink to={'/dashboard'}>DashBoard</NavLink></div>
+       )
       ),
 
 

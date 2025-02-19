@@ -13,6 +13,7 @@ const MakeAnOffer = () => {
     
     const {id}=useParams()
     const {user}=useAuth()
+    const [able,setAble]=useState(false)
     const axiosPrivate=usePrivetAxios()
     const { data: property = {}, isLoading } = useQuery({
         queryKey: [id,'oneproperty'],
@@ -28,16 +29,19 @@ const MakeAnOffer = () => {
     //console.log(property)
     if(isLoading) {return <LoadingSpin></LoadingSpin>}
     
-   if(maxPrice<offerRange)
-   {
-    setOfferRange(maxPrice)
-    //   setOfferRange2('out of range')
-   }
-   else if(minPrice>offerRange)
-   {
-    setOfferRange(minPrice)
-    //  setOfferRange2('out of range')
-   }
+//    if(maxPrice<offerRange)
+//    {
+//     setOfferRange(maxPrice)
+//     //   setOfferRange2('out of range')
+//    }
+//     if(minPrice>offerRange)
+//    {
+//     setAble(false)
+//     //  setOfferRange2('out of range')
+//    }
+//    else{
+//     setAble(true)
+//    }
   
 
     
@@ -48,9 +52,9 @@ const MakeAnOffer = () => {
                 const data= Object.fromEntries(formdata.entries())
               const  { offerprice, ...newdata}=data 
               const offerRange1=parseFloat(offerprice)
-              if(offerRange1>maxPrice || offerRange1<minPrice){
-                return toast.error('out of range')
-              }
+            //   if(offerRange1>maxPrice || offerRange1<minPrice){
+            //     return toast.error('out of range')
+            //   }
              const info={
                 ...newdata,
                 offerRange:offerRange1,
@@ -156,7 +160,7 @@ const MakeAnOffer = () => {
                         <textarea name="description" id="" cols={3}  rows="3" required className="w-full border rounded-2xl p-3" placeholder="Describe the property"></textarea>
                     </div> */}
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Offer Now</button>
+                        <button disabled={`${able}`} className="btn btn-primary">Offer Now</button>
                     </div>
                 </form>
             </div>

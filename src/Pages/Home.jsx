@@ -1,7 +1,10 @@
 import Advertisment from "../Components/HomeComponents/Advertisment";
 import LatestedReviews from "../Components/HomeComponents/LatestedReviews";
 import LunchNEST from "../Components/HomeComponents/LunchNEST";
+import Newsletter from "../Components/HomeComponents/Newsletter";
 import ProfesionnalChose from "../Components/HomeComponents/ProfesionnalChose";
+import SalesEstimated from "../Components/HomeComponents/SalesEstimated";
+import SalesPromotion from "../Components/HomeComponents/SalesPromotion";
 import Slider from "../Components/HomeComponents/Slider";
 import SectionTitle from "../Components/Shared/SectionTitle";
 import {Helmet} from "react-helmet";
@@ -32,8 +35,15 @@ const Home = () => {
                 <LunchNEST></LunchNEST>
             </section>
             <section>
+                <SalesEstimated></SalesEstimated>
+            </section>
+            <section>
+                <SalesPromotion></SalesPromotion>
+            </section>
+            <section>
                 <ProfesionnalChose></ProfesionnalChose>
             </section>
+            <Newsletter></Newsletter>
             
         </div>
     );
