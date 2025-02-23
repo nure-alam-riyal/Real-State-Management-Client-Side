@@ -1,5 +1,5 @@
 
-# 🏡 **Real Estate Management**  
+# 🏡 **Dream Nest Real Estate**  
 
 A **modern real estate e-commerce platform** built with **React.js, Firebase, TailwindCSS, and DaisyUI**. This platform allows users to **buy, sell, and rent properties** with three distinct user roles:  
 
