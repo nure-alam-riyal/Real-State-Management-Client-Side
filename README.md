@@ -10,7 +10,7 @@ A **modern real estate e-commerce platform** built with **React.js, Firebase, Ta
 This project is the **front-end** implementation of the real estate platform, with a focus on **UI/UX, authentication, payments, and interactivity**.
 
 ---
-# Amin   Email:dreamnest@gmail.com  pass:Aa123!
+# Admin   Email:dreamnest@gmail.com  pass:Aa123!
 
 # agent  Email:banui34@gmail.com    pass:Aa123!
 ## 🎮 **Usage**  
