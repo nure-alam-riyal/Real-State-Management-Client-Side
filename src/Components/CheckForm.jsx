@@ -8,9 +8,11 @@ import toast from "react-hot-toast";
 
 import SectionTitle from "./Shared/SectionTitle";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 
 const CheckForm = ({offerProperty}) => {
+  const navigate=Navigate()
   const {user}=useAuth()
 const [error,setError]=useState('')
 const {offerRange,propertyName,location,offerDate,_id,propertyId,agentEmail}=offerProperty || {}
@@ -106,6 +108,7 @@ if(isLoading) <LoadingSpin></LoadingSpin>
       
       axiosPrivate.post('/payment-order',paymentInfo)
       .then((res)=>{
+        navigate('/')
         //console.log(paymentIntent,res)
  if(res.data.insertedId){
   toast.success('payment Successful')

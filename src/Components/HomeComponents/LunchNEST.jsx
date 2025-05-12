@@ -1,13 +1,12 @@
+import SectionTitle from "../Shared/SectionTitle";
 
 
 const LunchNEST = () => {
     return (
-        <div className="bg-gray-900 rounded-2xl my-20 py-10 text-white py-12 px-6 text-center">
+        <div className="pb-6 rounded-2xl   text-black px-6 text-center">
        
         <div className="lg:w-8/12 mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-          Launch Your <span className="text-green-500">Dream Nest Real Estate</span> Website and <span className="text-green-500">Lead the Market</span> with MyHome
-        </h1>
+        
   
        
         <p className="text-gray-400 text-sm sm:text-base mb-8">

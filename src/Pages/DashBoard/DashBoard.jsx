@@ -15,6 +15,8 @@ import { VscDiffAdded } from "react-icons/vsc";
 import { CiSquareQuestion } from "react-icons/ci";
 import { AiTwotoneFolderAdd } from "react-icons/ai";
 import { SiWish } from "react-icons/si";
+import { IoIosStats } from "react-icons/io";
+
 
 
 const DashBoard = () => {
@@ -42,6 +44,7 @@ const DashBoard = () => {
                 <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/wishlist'><SiWish  className="text-red-950" /> Wishlist</NavLink></div>
                 <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/propertyBought'><GiBuyCard  className="text-red-950" /> Property Bought</NavLink></div>
                 <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/myReveiws'><MdOutlineReviews  className="text-red-950"  /> My reviews</NavLink></div>
+                <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/clientOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
                 <Navigate to={'/dashboard/userProfile'}></Navigate>
                 </div>)
                 }
@@ -51,6 +54,8 @@ const DashBoard = () => {
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/manageReviews'><MdRateReview className="text-red-950" /> Manage Reviews</NavLink></div>
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/adminPropertis'><GiTempleGate className="text-red-950" /> Manage Properties</NavLink></div>
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/advertices'><FcAdvertising className="text-red-950" /> Advertise Property</NavLink></div>
+            <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/AdminOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
+
             <Navigate to={'/dashboard/adminProfile'}></Navigate>
                 </div>)
             }
@@ -62,6 +67,8 @@ const DashBoard = () => {
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/mySoldProperties'><MdSell  className="text-red-950" /> My Sold Properties</NavLink></div>
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/myaddedProperty'><AiTwotoneFolderAdd  className="text-red-950"  /> My Added Properties</NavLink></div>
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/requestProperty'><CiSquareQuestion  className="text-red-950"  /> Requested Properties</NavLink></div>
+            <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/AgentOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
+
             <Navigate to={'/dashboard/agentProfile'}></Navigate>
            </div>)
           }

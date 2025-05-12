@@ -1,6 +1,7 @@
 
 import { DollarSign, TrendingUp, Home, Users } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionTitle from "../Shared/SectionTitle";
 
 const salesData = [
   {
@@ -31,10 +32,9 @@ const salesData = [
 
 export default function SalesEstimated() {
   return (
-    <div className="p-6 bg-gray-100 py-20 rounded-xl shadow-md w-full  mx-auto">
-      <h2 className="text-2xl  font-semibold text-gray-800 mb-12 text-center">
-        Sales Estimated
-      </h2>
+    <div className="pb-6 rounded-xl  w-full  ">
+            <SectionTitle head={' Sales Estimated'} subhead={'Sales estimation predicts future revenue based on market trends, past data, and business strategies. It helps in planning, budgeting, and decision-making to optimize sales performance and profitability.'}></SectionTitle>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {salesData.map((data) => (
           <motion.div

@@ -1,13 +1,12 @@
+import SectionTitle from "../Shared/SectionTitle";
 
 const ProfesionnalChose = () => {
     return (
-        <div className="text-center px-6 py-12">
+        <div className="text-center px-6 ">
         {/* Header Section */}
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2">
-          56,000+ Real Estate Professionals Choosed Houzez
-        </h1>
+          <SectionTitle head={' 56,000+ Real Estate Professionals Choosed Houzez'}></SectionTitle>
         <p className="text-green-600 text-sm sm:text-base font-semibold mb-8">
-          #1 Best Selling Real Estate WordPress Theme
+        #1 Best Selling Real Estate WordPress Theme
         </p>
   
         {/* Features Section */}

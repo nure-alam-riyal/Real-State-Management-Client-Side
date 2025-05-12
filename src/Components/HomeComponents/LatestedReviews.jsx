@@ -6,7 +6,7 @@ import LoadingSpin from "../Shared/LoadingSpin";
 const LatestedReviews = () => {
     const   axiosPublic=usePublicAxios()
     const {data:latestReviewa=[],isLoading}=useQuery({
-        queryKey:['latestreview'],
+        queryKey:['latestreview',],
         queryFn:async () => {
             const data=await axiosPublic('/latestreview')
             return data.data;
@@ -19,7 +19,7 @@ const LatestedReviews = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {
                 latestReviewa?.map(review=><div key={review?._id}>
-                    <div className="card image-full h-[300px]   shadow-xl">
+                    <div className="card image-full h-[350px]   shadow-xl">
                             {/* <figure>
                               <img className=""
                                 src={review?.image}

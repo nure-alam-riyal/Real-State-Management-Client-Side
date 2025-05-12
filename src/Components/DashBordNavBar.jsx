@@ -7,6 +7,7 @@ import logo from './../assets/image/logo.avif'
 import usePublicAxios from "../Hooks/usePublicAxios";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpin from "./Shared/LoadingSpin";
+import { IoIosStats } from "react-icons/io";
 
 
 const DashBordNavBar = () => {
@@ -120,6 +121,8 @@ const DashBordNavBar = () => {
             <div><NavLink to='/dashboard/wishlist'>Wishlist</NavLink></div>
             <div><NavLink to='/dashboard/propertyBought'>Property Bought</NavLink></div>
             <div><NavLink to='/dashboard/myReveiws'>My reviews</NavLink></div>
+            <div><NavLink  to='/dashboard/clientOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
+
             <Navigate to={'/dashboard/userProfile'}></Navigate>
             </div>)
             }
@@ -129,6 +132,8 @@ const DashBordNavBar = () => {
         <div><NavLink to='/dashboard/manageReviews'>Manage Reviews</NavLink></div>
         <div><NavLink to='/dashboard/adminPropertis'>Manage Properties</NavLink></div>
         <div><NavLink to='/dashboard/advertices'>Advertise Property</NavLink></div>
+        <div><NavLink  to='/dashboard/AdminOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
+
         <Navigate to={'/dashboard/adminProfile'}></Navigate>
             </div>)
         }
@@ -139,6 +144,8 @@ const DashBordNavBar = () => {
         <div><NavLink to='/dashboard/addProperty'>Add Property</NavLink></div>
         <div><NavLink to='/dashboard/myaddedProperty'>My Added Properties</NavLink></div>
         <div><NavLink to='/dashboard/requestProperty'>Requested Properties</NavLink></div>
+        <div><NavLink to='/dashboard/AgentOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
+
         <Navigate to={'/dashboard/agentProfile'}></Navigate>
        </div>)
       }

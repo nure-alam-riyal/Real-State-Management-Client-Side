@@ -31,13 +31,14 @@ const Home = () => {
                         <LatestedReviews></LatestedReviews>
                     </div>
             </section>
-            <section>
+            <section className="">
+            <SectionTitle head={`  Launch Your Dream Nest Real Estate Website and Lead the Market with MyHome`}></SectionTitle>
                 <LunchNEST></LunchNEST>
             </section>
-            <section>
+            <section className="bg-gray-100 p-1 rounded-lg">
                 <SalesEstimated></SalesEstimated>
             </section>
-            <section>
+            <section className="bg-yellow-50 p-1 rounded-lg">
                 <SalesPromotion></SalesPromotion>
             </section>
             <section>

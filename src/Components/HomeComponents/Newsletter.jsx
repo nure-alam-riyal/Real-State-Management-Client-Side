@@ -2,10 +2,8 @@
 
 const Newsletter = () => {
     return (
-        <div className="mb-20">
-           
-  
-    <section className="bg-gray-100 py-12 px-6 md:px-12 lg:px-24">
+        <div className="mb-2 mt-2">
+    <section className="bg-gray-100 rounded-lg py-20 px-6 md:px-12 lg:px-24">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-800">Stay Updated with Our Listings</h2>
         <p className="text-gray-600 mt-2">

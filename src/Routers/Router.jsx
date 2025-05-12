@@ -30,6 +30,9 @@ import UpdateProperty from "../Pages/DashBoard/UpdateProperty";
 import AdverticesProperty from "../Pages/DashBoard/AdverticesProperty";
 import Errorpage from "../Pages/Error/Errorpage";
 import ProtectRoute from "./protectRoute";
+import ClientOverAll from "../Pages/DashBoard/ClientOverAll";
+import AgentOverAll from "../Pages/DashBoard/AgentOverAll";
+import AdminOverAll from "../Pages/DashBoard/AdminOverAll";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -86,6 +89,9 @@ export const router = createBrowserRouter([
             },{
                      path:"/dashboard/payBil/:id" ,
                      element:<PrivateRoute><PayPages></PayPages></PrivateRoute>
+            },{
+                path:"/dashboard/clientOverAll",
+                element:<ClientOverAll></ClientOverAll>
             },
             //agent
             {
@@ -112,6 +118,10 @@ export const router = createBrowserRouter([
                 path:"/dashboard/addedproperty/:id",
                 element:<AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>
             },
+            {
+                path:"/dashboard/AgentOverAll",
+                element:<AgentOverAll></AgentOverAll>
+            },
             //admin
             {
 
@@ -137,7 +147,11 @@ export const router = createBrowserRouter([
                 path:'/dashboard/advertices',
                 element:<AdminRoute><AdverticesProperty></AdverticesProperty></AdminRoute>
             }
-            
+            ,{
+                path:"/dashboard/AdminOverAll",
+                element:<AdminOverAll></AdminOverAll>
+
+            }
             
         ]
     },{

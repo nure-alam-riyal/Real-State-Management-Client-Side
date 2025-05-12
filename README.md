@@ -12,7 +12,7 @@ This project is the **front-end** implementation of the real estate platform, wi
 ---
 # Amin   Email:dreamnest@gmail.com  pass:Aa123!
 
-# agent  Email:banui34@gmail.com    pass:Aa123!
+# Agent  Email:banui34@gmail.com    pass:Aa123!
 ## 🎮 **Usage**  
 
 - **Admin**: Manages users, property listings, and payments.  
