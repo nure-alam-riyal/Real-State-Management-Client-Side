@@ -45,7 +45,7 @@ const DashBoard = () => {
                 <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/propertyBought'><GiBuyCard  className="text-red-950" /> Property Bought</NavLink></div>
                 <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/myReveiws'><MdOutlineReviews  className="text-red-950"  /> My reviews</NavLink></div>
                 <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/clientOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
-                <Navigate to={'/dashboard/userProfile'}></Navigate>
+                <Navigate to={'/dashboard/clientOverAll'}></Navigate>
                 </div>)
                 }
            { (user&& user1?.role==='Admin')&&(<div>
@@ -56,7 +56,7 @@ const DashBoard = () => {
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/advertices'><FcAdvertising className="text-red-950" /> Advertise Property</NavLink></div>
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/AdminOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
 
-            <Navigate to={'/dashboard/adminProfile'}></Navigate>
+            <Navigate to={'/dashboard/AdminOverAll'}></Navigate>
                 </div>)
             }
 
@@ -69,7 +69,7 @@ const DashBoard = () => {
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/requestProperty'><CiSquareQuestion  className="text-red-950"  /> Requested Properties</NavLink></div>
             <div><NavLink className={'flex items-center justify-center gap-5'} to='/dashboard/AgentOverAll'><IoIosStats   className="text-red-950"  /> OverAll</NavLink></div>
 
-            <Navigate to={'/dashboard/agentProfile'}></Navigate>
+            <Navigate to={'/dashboard/AgentOverAll'}></Navigate>
            </div>)
           }
             <div className="divider divider-warning"></div>

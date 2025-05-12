@@ -50,15 +50,30 @@ const AgentOverAll = () => {
         <div className='flex flex-col justify-center items-center'>
                   <div className='flex '>
                   <div className='w-9/12 p-10 flex-1 '><Pie data={data} /></div>
-                  <div className='flex-1 font-semibold flex flex-col justify-center '>
-                  <p className='text-red-600'>Added Property :{AllData[0]}</p>
-                  <p className='text-blue-300'>Requested Property :{AllData[1]}</p>
-                  <p className='text-yellow-300'>Sold Property :{AllData[2]}</p>
+                  <div className='flex-1 gap-2 font-semibold flex flex-col justify-center '>
+                    <div className='flex justify-center text-xl rounded-lg items-center flex-col py-4 px-12 border w-full'>
+                       <p className='text-red-600'>Added Property </p>
+                       <p className='text-red-700 text-xl'>{AllData[0]}</p>
+                    </div>
+                 
+                    <div className='flex justify-center text-xl rounded-lg items-center flex-col py-4 px-12 border w-full'>
+                       <p className='text-blue-300'>Requested Property </p>
+                       <p className='text-blue-300 text-xl'>{AllData[1]}</p>
+                    </div>
+                 
+                    <div className='flex justify-center text-xl rounded-lg items-center flex-col py-4 px-12 border w-full'>
+                       <p className='text-yellow-300'>Sold Property </p>
+                       <p className='text-yellow-300 text-xl'>{AllData[2]}</p>
+                    </div>
+                 
+                 
                  
                 </div>
 
                   </div>
-                  <p className='text-green-500 text-4xl'>Tatal Revenue :<span className='text-red-800'>{AllData[3]}</span> taka</p>
+                <div className='border px-32 py-5 rounded-lg'>
+                    <p className='text-green-500 text-4xl'>Tatal Revenue :<span className='text-red-800'>{AllData[3]}</span> taka</p>
+                </div>
                </div>
     );
 };
