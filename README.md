@@ -1,5 +1,5 @@
 
-# 🏡 **Real Estate Management**  
+# 🏡 **Dream Nest Real Estate**  
 
 A **modern real estate e-commerce platform** built with **React.js, Firebase, TailwindCSS, and DaisyUI**. This platform allows users to **buy, sell, and rent properties** with three distinct user roles:  
 
@@ -10,7 +10,7 @@ A **modern real estate e-commerce platform** built with **React.js, Firebase, Ta
 This project is the **front-end** implementation of the real estate platform, with a focus on **UI/UX, authentication, payments, and interactivity**.
 
 ---
-# Amin   Email:dreamnest@gmail.com  pass:Aa123!
+# Admin   Email:dreamnest@gmail.com  pass:Aa123!
 
 # Agent  Email:banui34@gmail.com    pass:Aa123!
 ## 🎮 **Usage**  
