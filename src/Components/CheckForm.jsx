@@ -34,7 +34,7 @@ const {offerRange,propertyName,location,offerDate,_id,propertyId,agentEmail}=off
       if(offerRange>=0){
         const data=   await axiosPrivate.post('/create-Intent-server1',{price:offerRange})
            
-        // const data=   await axios.post('https://server-side-blue-three.vercel.app/create-Intent-server1',{price:offerRange})
+        // const data=   await axios.post('http://localhost:1515p/create-Intent-server1',{price:offerRange})
            
     return data.data
 
