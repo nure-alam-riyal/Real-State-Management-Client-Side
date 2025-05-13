@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosPublic = axios.create({
-    baseURL: 'http://localhost:1515',
+    baseURL: 'https://real-state-server-side-fawn.vercel.app',
     // timeout: 1000,
     // headers: {'X-Custom-Header': 'foobar'}
   });

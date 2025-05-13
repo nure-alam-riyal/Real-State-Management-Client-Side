@@ -29,7 +29,7 @@ import PayPages from "../Pages/DashBoard/PayPages";
 import UpdateProperty from "../Pages/DashBoard/UpdateProperty";
 import AdverticesProperty from "../Pages/DashBoard/AdverticesProperty";
 import Errorpage from "../Pages/Error/Errorpage";
-import ProtectRoute from "./protectRoute";
+import ProtectRoute from "./ProtectRoute";
 import ClientOverAll from "../Pages/DashBoard/ClientOverAll";
 import AgentOverAll from "../Pages/DashBoard/AgentOverAll";
 import AdminOverAll from "../Pages/DashBoard/AdminOverAll";
