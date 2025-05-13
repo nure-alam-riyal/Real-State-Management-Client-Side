@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 
 
 const AllProperties = () => {
+    const [count,setCount]=useState(1)
 const {user}=useAuth()
 const navigate=useNavigate()
 if(!user){
@@ -25,7 +26,7 @@ navigate('/login')
     const { data: allProperties = [], isLoading } = useQuery({
         queryKey: ['allproperties',min],
         queryFn: async () => {
-            const data = await axiosPrivate.get(`/allProperties?max=${min}&min=${min}&range=${min}`)
+            const data = await axiosPrivate.get(`/allProperties?max=${min}&min=${min}&range=${min}&skip=${(count*8)-8}&limit=${count*8}`)
             return setAllProperty(data.data)
         }
     })
@@ -55,6 +56,13 @@ navigate('/login')
                 {
                     allProperty.map(property => <CardAllProperties key={property?._id} property={property}></CardAllProperties>)
                 }
+            </div>
+            <div className="w-full flex justify-center items-center my-5">
+                <div className="join w-full flex gap-0">
+  <button  disabled={count===1} onClick={()=>setCount(count-1)} className="join-item btn">Previous Page({count-1})</button>
+  <button disabled={allProperties?.length<(count-1)*8} onClick={()=>setCount(count)} className="join-item btn">Page {count}</button>
+  <button disabled={allProperties?.length<(count+1)*8} onClick={()=>setCount(count+1)} className="join-item btn">Next Page({count+1})</button>
+</div>
             </div>
 
         </div>
