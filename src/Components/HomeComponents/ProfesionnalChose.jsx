@@ -2,7 +2,7 @@ import SectionTitle from "../Shared/SectionTitle";
 
 const ProfesionnalChose = () => {
     return (
-        <div className="text-center px-6 ">
+        <div className="text-center py-3 ">
         {/* Header Section */}
           <SectionTitle head={' 56,000+ Real Estate Professionals Choosed Houzez'}></SectionTitle>
         <p className="text-green-600 text-sm sm:text-base font-semibold mb-8">

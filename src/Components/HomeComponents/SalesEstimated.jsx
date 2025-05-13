@@ -32,10 +32,10 @@ const salesData = [
 
 export default function SalesEstimated() {
   return (
-    <div className="pb-6 rounded-xl  w-full  ">
+    <div className="pb-6 rounded-xl  w-full">
             <SectionTitle head={' Sales Estimated'} subhead={'Sales estimation predicts future revenue based on market trends, past data, and business strategies. It helps in planning, budgeting, and decision-making to optimize sales performance and profitability.'}></SectionTitle>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {salesData.map((data) => (
           <motion.div
             key={data.id}

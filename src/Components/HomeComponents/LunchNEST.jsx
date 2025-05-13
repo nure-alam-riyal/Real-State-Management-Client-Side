@@ -1,4 +1,4 @@
-import SectionTitle from "../Shared/SectionTitle";
+// import SectionTitle from "../Shared/SectionTitle";
 
 
 const LunchNEST = () => {
@@ -10,7 +10,7 @@ const LunchNEST = () => {
   
        
         <p className="text-gray-400 text-sm sm:text-base mb-8">
-          Unlock the full potential of your online marketplace with MyHome's robust features and intuitive design. Simplify the process of building, managing, and optimizing your digital platform to attract more visitors and generate higher revenue.
+          Unlock the full potential of your online marketplace with My Home`s robust features and intuitive design. Simplify the process of building, managing, and optimizing your digital platform to attract more visitors and generate higher revenue.
         </p>
   
        

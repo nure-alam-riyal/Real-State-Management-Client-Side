@@ -35,10 +35,10 @@ const Home = () => {
             <SectionTitle head={`  Launch Your Dream Nest Real Estate Website and Lead the Market with MyHome`}></SectionTitle>
                 <LunchNEST></LunchNEST>
             </section>
-            <section className="bg-gray-100 p-1 rounded-lg">
+            <section className="bg-gray-100 py-1 rounded-lg">
                 <SalesEstimated></SalesEstimated>
             </section>
-            <section className="bg-yellow-50 p-1 rounded-lg">
+            <section className="bg-yellow-50 py-1 rounded-lg">
                 <SalesPromotion></SalesPromotion>
             </section>
             <section>
