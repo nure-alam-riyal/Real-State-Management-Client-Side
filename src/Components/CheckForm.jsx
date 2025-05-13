@@ -42,7 +42,7 @@ const {offerRange,propertyName,location,offerDate,_id,propertyId,agentEmail}=off
     }
   })
 // }
-console.log(client,offerProperty)
+// console.log(client,offerProperty)
 if(isLoading) <LoadingSpin></LoadingSpin>
 
   // //console.log(offerRange,client.clientSecret,user)

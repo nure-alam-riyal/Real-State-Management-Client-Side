@@ -22,7 +22,7 @@ const AgentOverAll = () => {
     })
   
     const newData=AllData?.slice(0,AllData.length-1)
-    console.log(newData)
+    // console.log(newData)
     if(isLoading) return <LoadingSpin></LoadingSpin>
     const data = {
         labels: ['Added Property', 'Requested Property', 'Sold Property'],

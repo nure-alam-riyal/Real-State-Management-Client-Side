@@ -29,7 +29,7 @@ const MakeAnOffer = () => {
     
     //console.log(property)
     const offerRange=(value2)=>{
-        console.log(value2)
+        // console.log(value2)
         if(minPrice<=value2){
             setAble2(false)
            }
@@ -51,7 +51,7 @@ const MakeAnOffer = () => {
     
 
     
-console.log(able)
+// console.log(able)
     const handleUdateProperty=async e=>{
         e.preventDefault()
          const formdata=new FormData(e.target)

@@ -24,7 +24,7 @@ This project is the **front-end** implementation of the real estate platform, wi
 
 ## 🌍 **Live Demo**  
 
-🔗 **[Live Project](https://real-state-asset.web.app/)**  
+🔗 **[Live Project](https://real-state-management-client-side.vercel.app/)**  
 
 
 
@@ -179,12 +179,7 @@ This project uses the following **npm packages**:
 
 ---
 
-## 👥 **Contributors**  
 
-- **Your Name** - [GitHub Profile](https://github.com/your-username)  
-- **Contributor Name** - [GitHub Profile](https://github.com/contributor-username)  
-
----
 
 ## 📜 **License**  
 

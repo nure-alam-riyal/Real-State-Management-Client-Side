@@ -35,9 +35,9 @@ const UpdateProperty = () => {
     })
     
     const {maxPrice,minPrice,propertyName,location,description,varifyStatus,image}=propety || {}
-    console.log(image)
+    // console.log(image)
     const [pic,setPic]=useState(image)
-    console.log(pic)
+    // console.log(pic)
     const handleProperty = async e => {
         e.preventDefault()
         const formdata = new FormData(e.target)
@@ -46,7 +46,7 @@ const UpdateProperty = () => {
         const maxPrice = parseFloat(maxprice)
         const minPrice = parseFloat(minprice)
 
-    console.log(image1)
+    // console.log(image1)
          if(image1?.size){
             const photo = await imageURL(image1)
        
@@ -62,7 +62,7 @@ const UpdateProperty = () => {
             agentImage: user?.photoURL,
             varifyStatus: varifyStatus
         }
-        console.log(PROPERTYInfo)
+        // console.log(PROPERTYInfo)
         await axiosPrivate.put(`/propertyUpdate/${id}`, PROPERTYInfo)
             .then(result => {
                 if(result.data.matchedCount){

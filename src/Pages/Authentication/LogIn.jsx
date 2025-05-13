@@ -16,7 +16,7 @@ const LogIn = () => {
   const from = location?.state || '/'
   const [eye,setEye]=useState(true)
 const {signIn,signInGoogle}=useAuth()
-console.log(from)
+// console.log(from)
     const handleUserData = (e) => {
 
 

@@ -12,7 +12,7 @@ const LatestedReviews = () => {
             return data.data;
         }
     })
-    console.log(latestReviewa)
+    // console.log(latestReviewa)
     if(isLoading) return <LoadingSpin></LoadingSpin>
     //console.log(latestReviewa)
     return (

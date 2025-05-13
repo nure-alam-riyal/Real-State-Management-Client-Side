@@ -34,7 +34,7 @@ const AdminOverAll = () => {
             return data.data
         }
     })
-    console.log(PropertyData)
+    // console.log(PropertyData)
     const {PropertyNum,paymentNum, wishListNum,reviewNum,sum}=PropertyData || {}
     if(isLoading||r) return <LoadingSpin></LoadingSpin>
     const data = {

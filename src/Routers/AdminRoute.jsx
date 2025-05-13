@@ -7,7 +7,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from 'prop-types'
 const AdminRoute = ({children}) => {
     const location=useLocation()
-    console.log(location)
+    // console.log(location)
     const axiosPublic=usePublicAxios()
     const {user,loading}=useAuth()
     const {data:user1={},isLoading}=useQuery({

@@ -45,7 +45,7 @@ const Profile = ({ user }) => {
                    const from=e.target 
                    const name=from.name.value 
                    const pic=from.image.files[0]
-                   console.log(name,img)
+                //    console.log(name,img)
                    if(pic){
                     const Photo=await imageURL(pic)
                     setImg(Photo)
