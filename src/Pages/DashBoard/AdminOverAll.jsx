@@ -110,7 +110,7 @@ const AdminOverAll = () => {
                   </div>
                 </div>
                  <div className='flex justify-center text-xl text-blue-500 rounded-lg items-center flex-col py-4 px-12 border w-full'>
-                       <p className=''> Total  Revenue:{sum} TAKA </p>
+                       <p className=''> Total  Revenue: <span className='text-red-400'>{sum}</span> TAKA </p>
                       
                   </div>
             </div>

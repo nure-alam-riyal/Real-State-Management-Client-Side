@@ -51,13 +51,27 @@ const ClientOverAll = () => {
       
     return (
         <div className='flex justify-center items-center'>
-            <div className='flex justify-center'>
-            <div className='flex-1  p-10'><Doughnut data={data} /></div>
-            <div className='flex-1 font-semibold flex items-center flex-col justify-center '>
-                  <p className='text-red-300'>Review :{AllData[0]}</p>
-                  <p className='text-blue-300'>Wishlish Property :{AllData[1]}</p>
-                  <p className='text-yellow-200'>Offer Property :{AllData[2]}</p>
-                  <p className='text-green-500'>Buy Property :{AllData[3]}</p>
+            <div className='flex flex-col justify-center'>
+            <div className='  p-10'><Doughnut data={data} /></div>
+            <div className=' font-semibold  items-center flex flex-col  justify-between gap-2'>
+                  
+                  
+                   <div className='flex justify-center text-xl text-red-300 rounded-lg items-center flex-col py-4 px-12 border w-full'>
+                        <p className=''>Review </p>
+                       <p className=''> {AllData[0]}</p>
+                    </div>
+                   <div className='flex justify-center text-xl text-blue-300 rounded-lg items-center flex-col py-4 px-12 border w-full'>
+                       <p className=''>WishList Property </p>
+                       <p className=''> {AllData[1]}</p>
+                    </div>
+                   <div className='flex justify-center text-xl text-yellow-200 rounded-lg items-center flex-col py-4 px-12 border w-full'>
+                       <p className=''>Offer Property </p>
+                       <p className=''> {AllData[2]}</p>
+                    </div>
+                   <div className='flex justify-center text-xl text-green-500 rounded-lg items-center flex-col py-4 px-12 border w-full'>
+                       <p className=''>Buy Property </p>
+                       <p className=''> {AllData[3]}</p>
+                    </div>
                 </div>
             </div>
         </div>
