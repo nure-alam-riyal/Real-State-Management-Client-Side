@@ -5,10 +5,17 @@ import useAuth from "../../Hooks/useAuth";
 import SectionTitle from "../../Components/Shared/SectionTitle";
 import { Helmet } from "react-helmet";
 import  html2pdf  from 'html2pdf.js';
+// import html2canvas from "html2canvas";
+import html2canvas from "html2canvas-pro";
+import { useRef } from "react";
+import { jsPDF } from "jspdf";
 
 
 
 const Mysoldproperties = () => {
+  
+
+  const printRef=useRef()
     const {user}=useAuth()
     const axiosPrivate=usePrivetAxios()
     const {data:MyPayments=[],isLoading}=useQuery({
@@ -19,25 +26,33 @@ const Mysoldproperties = () => {
         }
     })
     const handleDownload=async()=>{
-       const element = window.querySelector('#riyal')
-        if(element){
- console.log("riyal")
+      const element=printRef.current
 
-    }
-
-console.log("first")
-html2pdf(element)
-  html2pdf()
-    .set({
-      margin: 10,
-      filename: 'document.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    })
-    .from(element)
-    .save();
    
+   const canvas = await html2canvas(element, {
+    scale: 2,
+    useCORS: true,
+    allowTaint: true,
+  });
+
+  const imgData = canvas.toDataURL('image/png');
+  const pdf = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4',
+  });
+
+  const pageWidth = pdf.internal.pageSize.getWidth();
+  const pageHeight = pdf.internal.pageSize.getHeight();
+
+  const imgWidth = pageWidth;
+  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+  // Step 3: Add image to PDF
+  pdf.addImage(imgData, 'PNG', 0, 10, imgWidth, imgHeight);
+
+  // Step 4: Save
+  pdf.save('document.pdf');
    
     }
     if(isLoading) return <LoadingSpin></LoadingSpin>
@@ -56,10 +71,14 @@ html2pdf(element)
   <button onClick={handleDownload} className="btn ">Download the list of sold property</button>
  </div>
  </div>
-            <div className="overflow-x-auto" id="riyal"  >
-  <table className="table table-zebra text-center">
+            <div className="overflow-x-auto force-print-colors" id="riyal" ref={printRef} style={{
+    color: '#000',
+    backgroundColor: '#fff',
+    borderColor: '#000',
+  }}  >
+   <table className="table table-zebra text-center" style={{ backgroundColor: '#fff', color: '#000' }}>
     {/* head */}
-    <thead>
+    <thead style={{ backgroundColor: '#fff', color: '#000' }}>
       <tr>
         <th>#</th>
         <th>Property Title</th>
@@ -82,11 +101,12 @@ html2pdf(element)
       
     </tbody>
   </table>
-</div>
-
-<div className="my-20" >
+  <div className="my-20" >
 <p className="font-bold text-center text-3xl">My sold propety`s Total amount :{totalAmout}</p>
 </div>
+</div>
+
+
         </div>)
 };
 

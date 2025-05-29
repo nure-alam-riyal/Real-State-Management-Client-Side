@@ -55,17 +55,17 @@ const AuthProvider = ({ children }) => {
                                    toast.success("user login")
                         }
                        })
-                     axiosPublic.post('/jwt',{ email:CurretUser?.email})
-                     .then(res=>{
-                        if(res.data.token){
-                            localStorage.setItem('token',res.data.token)
-                        }
-                     })
+                    //  axiosPublic.post('/jwt',{ email:CurretUser?.email})
+                    //  .then(res=>{
+                    //     if(res.data.token){
+                    //         localStorage.setItem('token',res.data.token)
+                    //     }
+                    //  })
 
                      }
-                     else{
-                        localStorage.removeItem('token')
-                     }
+                    //  else{
+                    //     localStorage.removeItem('token')
+                    //  }
        }))
        return ()=>unSubscribe()
     },[axiosPublic])

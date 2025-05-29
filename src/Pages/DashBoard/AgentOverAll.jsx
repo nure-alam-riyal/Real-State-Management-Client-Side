@@ -13,7 +13,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const AgentOverAll = () => {
     const {user}=useAuth()
     const axiosPrivate=usePrivetAxios()
-    const {data:AllData,isLoading,}=useQuery({
+    const {data:AllData=[],isLoading,}=useQuery({
         queryKey:['customerOverWall',user],
         queryFn:async () => {
             const data=await axiosPrivate(`/AgentOverWall/${user?.email}`)
@@ -22,7 +22,7 @@ const AgentOverAll = () => {
     })
   
     const newData=AllData?.slice(0,AllData.length-1)
-    // console.log(newData)
+    console.log(newData)
     if(isLoading) return <LoadingSpin></LoadingSpin>
     const data = {
         labels: ['Added Property', 'Requested Property', 'Sold Property'],
@@ -90,7 +90,7 @@ console.log("first")
                 <div className='border px-32 py-5 rounded-lg'>
                     <p className='text-green-500 text-4xl'>Tatal Revenue :<span className='text-red-800'>{AllData[3]}</span> taka</p>
                 </div>
-                 <button onClick={handleDownload} className="btn ">Download the list of sold property</button>
+                
                </div>
 
     );
