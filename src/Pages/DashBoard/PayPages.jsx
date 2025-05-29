@@ -2,7 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckForm from "../../Components/CheckForm";
 import usePrivetAxios from "../../Hooks/usePrivetAxios";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";

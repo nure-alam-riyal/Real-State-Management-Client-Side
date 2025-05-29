@@ -54,7 +54,7 @@ navigate('/login')
             </div>
             <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-3 grid-cols-1">
                 {
-                    allProperty.map(property => <CardAllProperties key={property?._id} property={property}></CardAllProperties>)
+                    allProperty?.map(property => <CardAllProperties key={property?._id} property={property}></CardAllProperties>)
                 }
             </div>
             <div className="w-full flex justify-center items-center my-5">

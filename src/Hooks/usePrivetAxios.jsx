@@ -2,8 +2,8 @@
 import axios from "axios";
 const axiosPrivate = axios.create({
     baseURL: 'https://real-state-server-side-fawn.vercel.app',
-    // timeout: 1000,
-    // headers: {'X-Custom-Header': 'foobar'}
+    timeout: 1000,
+    headers: {'X-Custom-Header': 'foobar'}
   });
 const usePrivetAxios = () => {
   axiosPrivate.interceptors.request.use(function (config) {

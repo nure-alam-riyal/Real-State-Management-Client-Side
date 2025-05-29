@@ -13,7 +13,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const ClientOverAll = () => {
     const{user}=useAuth()
     const axiosPrivate=usePrivetAxios()
-    const {data:AllData,isLoading}=useQuery({
+    const {data:AllData=[] ,isLoading}=useQuery({
         queryKey:['customerOverWall',user],
         queryFn:async () => {
             const data=await axiosPrivate(`/customerOverWall/${user?.email}`)

@@ -46,6 +46,22 @@ const AgentOverAll = () => {
           },
         ],
       };
+      const handleDownload=async()=>{
+       const element = document.getElementById('pdf-content');
+  const html2pdf = (await import('html2pdf.js')).default;
+console.log("first")
+  html2pdf()
+    .set({
+      margin: 10,
+      filename: 'document.pdf',
+      // image: { type: 'jpeg', quality: 0.98 },
+      // html2canvas: { scale: 2 },
+      // jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    })
+    .from(element)
+    .save();
+    console.log("first")
+    }
     return (
         <div className='flex flex-col justify-center items-center'>
                   <div className='flex '>
@@ -74,7 +90,9 @@ const AgentOverAll = () => {
                 <div className='border px-32 py-5 rounded-lg'>
                     <p className='text-green-500 text-4xl'>Tatal Revenue :<span className='text-red-800'>{AllData[3]}</span> taka</p>
                 </div>
+                 <button onClick={handleDownload} className="btn ">Download the list of sold property</button>
                </div>
+
     );
 };
 

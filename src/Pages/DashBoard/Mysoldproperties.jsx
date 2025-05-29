@@ -4,6 +4,7 @@ import usePrivetAxios from "../../Hooks/usePrivetAxios";
 import useAuth from "../../Hooks/useAuth";
 import SectionTitle from "../../Components/Shared/SectionTitle";
 import { Helmet } from "react-helmet";
+import  html2pdf  from 'html2pdf.js';
 
 
 
@@ -17,7 +18,28 @@ const Mysoldproperties = () => {
             return data.data
         }
     })
-    
+    const handleDownload=async()=>{
+       const element = window.querySelector('#riyal')
+        if(element){
+ console.log("riyal")
+
+    }
+
+console.log("first")
+html2pdf(element)
+  html2pdf()
+    .set({
+      margin: 10,
+      filename: 'document.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    })
+    .from(element)
+    .save();
+   
+   
+    }
     if(isLoading) return <LoadingSpin></LoadingSpin>
 
     const totalAmout=MyPayments.reduce((sum,payment)=>(sum+payment?.totalPrice),0)
@@ -27,8 +49,14 @@ const Mysoldproperties = () => {
            <Helmet>
         <title>My sold Properties | Dream Nest Real Estate</title>
          </Helmet>
- <SectionTitle head={'MY Sold Property'}></SectionTitle>
-            <div className="overflow-x-auto">
+ <div className="flex justify-between items-center" >
+  
+ <div className="flex-1"> <SectionTitle head={'MY Sold Property'}></SectionTitle></div>
+ <div>
+  <button onClick={handleDownload} className="btn ">Download the list of sold property</button>
+ </div>
+ </div>
+            <div className="overflow-x-auto" id="riyal"  >
   <table className="table table-zebra text-center">
     {/* head */}
     <thead>
@@ -56,7 +84,7 @@ const Mysoldproperties = () => {
   </table>
 </div>
 
-<div className="my-20">
+<div className="my-20" >
 <p className="font-bold text-center text-3xl">My sold propety`s Total amount :{totalAmout}</p>
 </div>
         </div>)

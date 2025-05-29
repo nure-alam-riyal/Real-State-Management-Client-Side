@@ -68,7 +68,8 @@ const Navbar = () => {
     {
       key: '4',
       label: (
-        <div><NavLink to={'/login'}>LogIn</NavLink></div>
+        !user&&(<div><NavLink to={'/login'}>LogIn</NavLink></div>)
+        
       
       ),
 
